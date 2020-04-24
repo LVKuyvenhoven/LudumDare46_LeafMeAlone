@@ -15,13 +15,13 @@ public class Movement_Script : MonoBehaviour
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         if (Input.GetKey(Left))
-            rb.AddForce(Vector3.left * Speed);
+            rb.(Vector3.left * Speed);
         if (Input.GetKey(Right))
-            rb.AddForce(Vector3.right * Speed);
+            rb.AddRelativeForce(Vector3.right * Speed);
 
         if (Input.GetKey(Forward))
-            rb.AddForce(Vector3.forward * Speed);
+            rb.AddRelativeForce(Vector3.forward * Speed);
         if (Input.GetKey(Backward))
-            rb.AddForce(Vector3.back * Speed);
+            rb.AddRelativeForce(Vector3.back * Speed);
     }
 }
