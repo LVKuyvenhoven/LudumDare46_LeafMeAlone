@@ -5,7 +5,8 @@ using UnityEngine;
 public class CloudBehavior : MonoBehaviour
 {
     [Header("Variables")]
-    float timeToScale;
+    public float scalingSpeed;
+    float timeToScale, maxScale = 500;
 
     private void Awake()
     {
@@ -14,11 +15,11 @@ public class CloudBehavior : MonoBehaviour
 
     IEnumerator SizeCloud()
     {
-        while (timeToScale < 1000)
+        while (timeToScale < maxScale)
         {
-            Debug.Log(timeToScale);
+            timeToScale += 1;
+            gameObject.transform.localScale += new Vector3(scalingSpeed, scalingSpeed, scalingSpeed);
             yield return null;
-            gameObject.transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
         }
         yield return null;
     }
