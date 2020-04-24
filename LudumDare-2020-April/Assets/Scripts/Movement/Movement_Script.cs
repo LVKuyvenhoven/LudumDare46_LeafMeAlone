@@ -14,6 +14,8 @@ public class Movement_Script : MonoBehaviour
     public KeyCode Forward;
     public KeyCode Back;
 
+    public float pushPower = 2.0f;
+
     public KeyCode Right;
     public KeyCode Left;
 
@@ -28,25 +30,25 @@ public class Movement_Script : MonoBehaviour
     {
         if (Input.GetKey(Forward))
         {
-            move = transform.forward * 0.5f;
+            move = transform.forward * 1f;
             controller.Move(move * speed * Time.deltaTime);
         }
 
         if (Input.GetKey(Left))
         {
-            move = transform.right * -0.5f;
+            move = transform.right * -1f;
             controller.Move(move * speed * Time.deltaTime);
         }
 
         if (Input.GetKey(Back))
         {
-            move = transform.forward * -0.5f;
+            move = transform.forward * -1f;
             controller.Move(move * speed * Time.deltaTime);
         }
 
         if (Input.GetKey(Right))
         {
-            move = transform.right * 0.5f;
+            move = transform.right * 1f;
             controller.Move(move * speed * Time.deltaTime);
         }
 
@@ -57,5 +59,26 @@ public class Movement_Script : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
         velocity.y += gravity * Time.deltaTime;
+    }
+
+
+    //Maakt het mogelijk om rigidbody's te pushen als een charactercontroller
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody body = hit.collider.attachedRigidbody;
+
+        if (body == null || body.isKinematic)
+        {
+            return;
+        }
+
+        if (hit.moveDirection.y < -0.3)
+        {
+            return;
+        }
+
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+
+        body.velocity = pushDir * pushPower;
     }
 }
