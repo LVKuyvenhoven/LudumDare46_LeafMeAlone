@@ -19,6 +19,8 @@ public class Movement_Script : MonoBehaviour
     public KeyCode Right;
     public KeyCode Left;
 
+    [Header("Set Playstation Controller")]
+    public bool thisIsPlayerTwo;
 
     void Update()
     {
@@ -59,6 +61,62 @@ public class Movement_Script : MonoBehaviour
         {
             move = transform.right * 1f;
             controller.Move(move * speed * Time.deltaTime);
+        }
+
+        //Playstation Controller Test
+        //DPAD
+        if (thisIsPlayerTwo) {
+            if (Input.GetAxis("ControllerTwoYAxis") != 0) {
+                move = transform.forward * Input.GetAxis("ControllerTwoYAxis");
+                controller.Move(move * speed * Time.deltaTime);
+            }
+            else
+            {
+                if (Input.GetAxis("ControllerTwoXAxis") != 0)
+                {
+                    move = transform.right * Input.GetAxis("ControllerTwoXAxis");
+                    controller.Move(move * speed * Time.deltaTime);
+                }
+            }
+        } else {
+            if (Input.GetAxis("ControllerOneYAxis") != 0) {
+                move = transform.forward * Input.GetAxis("ControllerOneYAxis");
+                controller.Move(move * speed * Time.deltaTime);
+            }
+            if (Input.GetAxis("ControllerOneXAxis") != 0)
+            {
+                move = transform.right * Input.GetAxis("ControllerOneXAxis");
+                controller.Move(move * speed * Time.deltaTime);
+            }
+
+            //Joystick
+            if (Input.GetAxis("ControllerOneJoyX") != 0)
+            {
+                move = transform.right * Input.GetAxis("ControllerOneJoyX");
+                controller.Move(move * speed * Time.deltaTime);
+            }
+            else
+            {
+                if (Input.GetAxis("ControllerOneJoyY") != 0)
+                {
+                    move = transform.forward * -Input.GetAxis("ControllerOneJoyY");
+                    controller.Move(move * speed * Time.deltaTime);
+                }
+            }
+
+            if (Input.GetAxis("ControllerTwoJoyX") != 0)
+            {
+                move = transform.right * Input.GetAxis("ControllerTwoJoyX");
+                controller.Move(move * speed * Time.deltaTime);
+            }
+            else
+            {
+                if (Input.GetAxis("ControllerTwoJoyY") != 0)
+                {
+                    move = transform.forward * -Input.GetAxis("ControllerTwoJoyY");
+                    controller.Move(move * speed * Time.deltaTime);
+                }
+            }
         }
 
         if (velocity.y < 0)

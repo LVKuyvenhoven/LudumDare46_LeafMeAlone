@@ -25,7 +25,7 @@ public class PlantScriptjuh : MonoBehaviour
     public int RainDecreaseSpeed;
     public int RainIncreaseSpeed;
 
-    public int range = 10;
+    public int range = 2;
 
     public bool InSun;
     public bool InRain;

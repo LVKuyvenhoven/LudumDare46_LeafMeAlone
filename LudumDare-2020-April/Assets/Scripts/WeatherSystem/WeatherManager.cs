@@ -105,13 +105,13 @@ public class WeatherManager : MonoBehaviour
         if (spawnCloud)
         {
             spawnCloud = false;
-            newCloudPosition = new Vector3(randomPositionX, groundObject.transform.position.y + 0.55f, randomPositionZ);
+            newCloudPosition = new Vector3(randomPositionX, groundObject.transform.position.y + 0.2f, randomPositionZ);
             Instantiate(cloudPrefabObject, newCloudPosition, Quaternion.Euler(90, 0, 0), gameObject.transform);
         }
         else
         {
             spawnCloud = true;
-            newCloudPosition = new Vector3(randomPositionX, groundObject.transform.position.y + 0.55f, randomPositionZ);
+            newCloudPosition = new Vector3(randomPositionX, groundObject.transform.position.y + 0.2f, randomPositionZ);
             Instantiate(sunPrefabObject, newCloudPosition, Quaternion.Euler(90, 0, 0), gameObject.transform);
         }
         //Delay before spawning another cloud
