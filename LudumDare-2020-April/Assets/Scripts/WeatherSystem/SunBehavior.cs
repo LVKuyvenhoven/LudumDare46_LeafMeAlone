@@ -6,6 +6,7 @@ public class SunBehavior : MonoBehaviour
 {
     [Header("Variables")]
     public float scalingSpeed;
+    public float idleTime;
     Light lt;
 
     private void Awake()
@@ -21,7 +22,20 @@ public class SunBehavior : MonoBehaviour
             lt.spotAngle += scalingSpeed;
             yield return null;
         }
+        StartCoroutine(DestroyThisSun());
         yield return null;
+    }
+
+    IEnumerator DestroyThisSun()
+    {
+        yield return new WaitForSeconds(idleTime);
+        while (lt.spotAngle > 1)
+        {
+            lt.spotAngle -= scalingSpeed;
+            yield return null;
+        }
+        yield return null;
+        Destroy(gameObject);
     }
 
 }
