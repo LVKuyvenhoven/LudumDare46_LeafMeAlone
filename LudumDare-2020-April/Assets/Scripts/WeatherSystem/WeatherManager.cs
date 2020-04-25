@@ -26,7 +26,13 @@ public class WeatherManager : MonoBehaviour
     private void Awake()
     {
         maxSize = 300;
+        CreateSectors();
         StartCoroutine(SpawnCloud());
+    }
+
+    void CreateSector()
+    {
+
     }
 
     IEnumerator SpawnCloud()

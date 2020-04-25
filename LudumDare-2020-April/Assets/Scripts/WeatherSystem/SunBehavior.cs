@@ -4,22 +4,34 @@ using UnityEngine;
 
 public class SunBehavior : MonoBehaviour
 {
+    [Header("References")]
+    GameObject skyObject;
+    WeatherManager weatherScript;
+    SpriteRenderer sunRenderer;
+
     [Header("Variables")]
-    public float scalingSpeed;
-    public float idleTime;
-    Light lt;
+    float timeToScale;
+    float opacity;
 
     private void Awake()
     {
-        lt = GetComponent<Light>();
-        lt.type = LightType.Spot;
-        StartCoroutine(SizeCloud());
+        //Get required components
+        sunRenderer = gameObject.GetComponent<SpriteRenderer>();
+        skyObject = GameObject.Find("Sky");
+        weatherScript = skyObject.GetComponent<WeatherManager>();
+        //Start scaling
+        StartCoroutine(SizeSunray());
     }
 
-    IEnumerator SizeCloud()
+    IEnumerator SizeSunray()
     {
-        while (lt.spotAngle < 10) {
-            lt.spotAngle += scalingSpeed;
+        while (timeToScale < weatherScript.maxSize) {
+            timeToScale += 1;
+            //Increase opacity of sunray
+            opacity += weatherScript.growRate * 2;
+            sunRenderer.color = new Color(1, 1, 1, opacity);
+            //Increase size of sunray
+            gameObject.transform.localScale += new Vector3(weatherScript.growRate, weatherScript.growRate, weatherScript.growRate);
             yield return null;
         }
         StartCoroutine(DestroyThisSun());
@@ -28,13 +40,18 @@ public class SunBehavior : MonoBehaviour
 
     IEnumerator DestroyThisSun()
     {
-        yield return new WaitForSeconds(idleTime);
-        while (lt.spotAngle > 1)
-        {
-            lt.spotAngle -= scalingSpeed;
+        yield return new WaitForSeconds(weatherScript.idleTimeInSeconds);
+        while (timeToScale > 1) {
+            timeToScale -= 2;
+            //Decrease opacity of sunray
+            opacity -= weatherScript.growRate;
+            sunRenderer.color = new Color(1, 1, 1, opacity);
+            //Decrease size of sunray
+            gameObject.transform.localScale -= new Vector3(weatherScript.growRate * 2, weatherScript.growRate * 2, weatherScript.growRate * 2);
             yield return null;
         }
         yield return null;
+        //Destroy sunray
         Destroy(gameObject);
     }
 
