@@ -1358,8 +1358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcec5f0c2162794d9983d67ad178c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeAlive: 0
   deadlabel: {fileID: 689210688}
-  timelabel: {fileID: 0}
+  timelabel: {fileID: 1921310949}
 --- !u!4 &966001004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6642677438529357784, guid: 660084259a9bbe949a9c9203482d20be,
@@ -2255,6 +2256,11 @@ PrefabInstance:
       propertyPath: growRate
       value: 0.001
       objectReference: {fileID: 0}
+    - target: {fileID: 7521236319066778506, guid: 2f329271decb96d49ab96f960293101a,
+        type: 3}
+      propertyPath: scoreboardObject
+      value: 
+      objectReference: {fileID: 963194225}
     - target: {fileID: 7521236319066778507, guid: 2f329271decb96d49ab96f960293101a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2547,7 +2553,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.520634, y: 0.82069814}
   m_AnchorMax: {x: 0.9825119, y: 0.96300006}
-  m_AnchoredPosition: {x: -2.5, y: -111}
+  m_AnchoredPosition: {x: -2.5, y: -109}
   m_SizeDelta: {x: -3.5200195, y: -0.3499999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921310949

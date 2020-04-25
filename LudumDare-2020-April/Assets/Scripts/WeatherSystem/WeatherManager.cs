@@ -6,22 +6,26 @@ public class WeatherManager : MonoBehaviour
 {
     [Header("References")]
     public GameObject groundObject;
+    public GameObject scoreboardObject;
+    Scoreboard scoreboardScript;
     public GameObject cloudPrefabObject;
     public GameObject sunPrefabObject;
     [HideInInspector] public GameObject minXPositionFrame, maxXPositionFrame, minZPositionFrame, maxZPositionFrame;
 
     [Header("Weather Spawner")]
-    public int spawnRateInSeconds = 5;
+    public float spawnRateInSeconds = 5;
     [Range(0.5f, 2.8f)]
     public float spawnOffset;
     [HideInInspector] public int maxAmountOfCloudsAndSuns = 10000;
 
     [Header("Sun and Cloud Stats")]
     public float growRate = 0.005f;
-    public int idleTimeInSeconds = 2;
+    public float idleTimeInSeconds = 2;
     [HideInInspector] public float maxSize;
 
     [Header("Variables")]
+    int level = 1;
+
     int elementsInList;
     float minXPosition, maxXPosition, minYPosition, maxYPosition;
     float randomPositionX, randomPositionZ, distanceToPreviousX, distanceToPreviousZ;
@@ -34,6 +38,7 @@ public class WeatherManager : MonoBehaviour
 
     private void Awake()
     {
+        scoreboardScript = scoreboardObject.GetComponent<Scoreboard>();
         maxSize = 300;
         previousXPositions.Add(100f);
         previousZPositions.Add(100f);
@@ -41,10 +46,51 @@ public class WeatherManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!spawnANewObject)
-        {
+        if (!spawnANewObject) {
             spawnANewObject = true;
             StartCoroutine(SpawnCloud());
+        }
+        //Start level 2
+        if (scoreboardScript.timeAlive >= 20 && level == 1)
+        {
+            level = 2;
+            spawnRateInSeconds += 1;
+            idleTimeInSeconds -= 1;
+            idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
+        }
+        //Start level 3
+        if (scoreboardScript.timeAlive >= 40 && level == 2)
+        {
+            level = 3;
+            spawnRateInSeconds += 1;
+            idleTimeInSeconds -= 1;
+            idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
+        }
+        //Start level 4
+        if (scoreboardScript.timeAlive >= 60 && level == 1)
+        {
+            level = 4;
+            spawnRateInSeconds += 1;
+            idleTimeInSeconds -= 1;
+            idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
+        }
+        //Start level 5
+        if (scoreboardScript.timeAlive >= 80 && level == 1)
+        {
+            level = 5;
+            spawnRateInSeconds += 1;
+            idleTimeInSeconds -= 1;
+            idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
+        }
+        //Start level 6
+        if (scoreboardScript.timeAlive >= 80 && level == 1)
+        {
+            level = 6;
+            spawnRateInSeconds += 1;
+            idleTimeInSeconds -= 1;
+            idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
+            Debug.Log(idleTimeInSeconds);
+            Debug.Log(spawnRateInSeconds);
         }
     }
 

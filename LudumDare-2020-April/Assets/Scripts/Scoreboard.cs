@@ -9,7 +9,7 @@ public class Scoreboard : MonoBehaviour
     public static int PlantsDead;
     public static int CurrentPlatsDead;
 
-    float timeAlive;
+    public float timeAlive;
 
     public TextMeshProUGUI deadlabel;
     public TextMeshProUGUI timelabel;
@@ -38,7 +38,7 @@ public class Scoreboard : MonoBehaviour
     void CountPlayingTime()
     {
         timeAlive += 1 * Time.deltaTime;
-        Debug.Log(timeAlive);
+        timelabel.text = Mathf.Round(timeAlive).ToString() + " seconds";
     }
 
 }
