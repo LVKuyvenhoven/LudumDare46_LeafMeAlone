@@ -9,7 +9,7 @@ public class sun : MonoBehaviour {
 	public float hour;
 
 	public Material skybox;
-	float Value;
+	public float Value;
 
 	public bool Twaalf_Snachts;
 	public bool Twaalf_SMiddags;
@@ -51,7 +51,6 @@ public class sun : MonoBehaviour {
 		transform.LookAt(Vector3.zero);
 	}
 
-	// Update is called once per frame
 	void Update () 
 	{
 		if(Curtime >= 360)
@@ -63,21 +62,34 @@ public class sun : MonoBehaviour {
 		{
 			if(Value < 1)
 			{
-				Value = Value + 0.0005f;
+				Value = Value + 0.05f * Time.deltaTime;
 			}
 			skybox.SetFloat("_Blend", Value);
 		}
 
 		if (Curtime >= 90 && Curtime <= 270)
 		{
-			if (Value < 1)
+			if (Value > 0)
 			{
-				Value = Value - 0.0005f;
+				Value = Value - 0.05f * Time.deltaTime;
 			}
 			skybox.SetFloat("_Blend", Value);
 		}
 
-
+		if (Curtime >= 75 && Curtime <= 240)
+		{
+			if (this.gameObject.GetComponent<Light>().intensity < 1.5f)
+			{
+				this.gameObject.GetComponent<Light>().intensity = this.gameObject.GetComponent<Light>().intensity + 0.05f * Time.deltaTime;
+			}
+		}
+		else if (Curtime >= 240 || Curtime <= 75)
+		{
+			if (this.gameObject.GetComponent<Light>().intensity > 0)
+			{
+				this.gameObject.GetComponent<Light>().intensity = this.gameObject.GetComponent<Light>().intensity - 0.125f * Time.deltaTime;
+			}
+		}
 
 		time = speed * Time.deltaTime;
 		Curtime = Curtime + time;
