@@ -6,12 +6,14 @@ public class WeatherManager : MonoBehaviour
 {
     [Header("References")]
     public GameObject cloudPrefabObject;
+    public GameObject sunPrefabObject;
     public GameObject minXPosition, maxXPosition, minZPosition, maxZPosition;
 
     [Header("Variables")]
+    public int maxAmountOfClouds;
+    public int spawnRate;
     float randomPositionX, randomPositionZ;
     Vector3 newCloudPosition;
-    int maxAmountOfClouds = 10;
 
     private void Awake()
     {
@@ -28,7 +30,8 @@ public class WeatherManager : MonoBehaviour
             newCloudPosition = new Vector3(randomPositionX, gameObject.transform.position.y, randomPositionZ);
             //Instantiate the cloud at the sky parent
             Instantiate(cloudPrefabObject, newCloudPosition, Quaternion.identity, gameObject.transform);
-            yield return new WaitForSeconds(2f);
+            //Delay before spawning another cloud
+            yield return new WaitForSeconds(spawnRate);
         }
         yield return null;
     }

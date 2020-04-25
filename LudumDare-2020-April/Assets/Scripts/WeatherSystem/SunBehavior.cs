@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloudBehavior : MonoBehaviour
+public class SunBehavior : MonoBehaviour
 {
     [Header("Variables")]
     public float scalingSpeed;
-    float timeToScale, maxScale = 500;
+    Light lt;
 
     private void Awake()
     {
+        lt = GetComponent<Light>();
+        lt.type = LightType.Spot;
         StartCoroutine(SizeCloud());
     }
 
     IEnumerator SizeCloud()
     {
-        while (timeToScale < maxScale) {
-            timeToScale += 1;
-            gameObject.transform.localScale += new Vector3(scalingSpeed, scalingSpeed, scalingSpeed);
+        while (lt.spotAngle < 10) {
+            lt.spotAngle += scalingSpeed;
             yield return null;
         }
         yield return null;
