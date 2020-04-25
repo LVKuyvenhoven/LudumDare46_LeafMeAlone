@@ -4,21 +4,34 @@ using UnityEngine;
 
 public class CloudBehavior : MonoBehaviour
 {
+    [Header("References")]
+    GameObject skyObject;
+    WeatherManager weatherScript;
+    SpriteRenderer cloudRenderer;
+
     [Header("Variables")]
-    public float scalingSpeed;
-    public float idleTime;
-    float timeToScale, maxScale = 500;
+    float timeToScale;
+    float opacity;
 
     private void Awake()
     {
+        //Get required components
+        cloudRenderer = gameObject.GetComponent<SpriteRenderer>();
+        skyObject = GameObject.Find("Sky");
+        weatherScript = skyObject.GetComponent<WeatherManager>();
+        //Start scaling
         StartCoroutine(SizeCloud());
     }
 
     IEnumerator SizeCloud()
     {
-        while (timeToScale < maxScale) {
+        while (timeToScale < weatherScript.maxSize) {
             timeToScale += 1;
-            gameObject.transform.localScale += new Vector3(scalingSpeed, scalingSpeed, scalingSpeed);
+            //Increase opacity of shadow
+            opacity += weatherScript.growRate * 2;
+            cloudRenderer.color = new Color(1, 1, 1, opacity);
+            //Increase size of shadow
+            gameObject.transform.localScale += new Vector3(weatherScript.growRate, weatherScript.growRate, weatherScript.growRate);
             yield return null;
         }
         StartCoroutine(DestroyThisCloud());
@@ -27,13 +40,18 @@ public class CloudBehavior : MonoBehaviour
 
     IEnumerator DestroyThisCloud()
     {
-        yield return new WaitForSeconds(idleTime);
-        while (timeToScale > 1)
-        {
-            //lt.spotAngle -= scalingSpeed;
+        yield return new WaitForSeconds(weatherScript.idleTimeInSeconds);
+        while (timeToScale > 1) {
+            timeToScale -= 2;
+            //Decrease opacity of shadow
+            opacity -= weatherScript.growRate;
+            cloudRenderer.color = new Color(1, 1, 1, opacity);
+            //Decrease size of shadow
+            gameObject.transform.localScale -= new Vector3(weatherScript.growRate * 2, weatherScript.growRate * 2, weatherScript.growRate * 2);
             yield return null;
         }
         yield return null;
+        //Destroy shadow
         Destroy(gameObject);
     }
 
