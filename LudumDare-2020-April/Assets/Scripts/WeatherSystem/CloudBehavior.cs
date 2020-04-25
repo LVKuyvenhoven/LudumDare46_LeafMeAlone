@@ -52,7 +52,8 @@ public class CloudBehavior : MonoBehaviour
         }
         yield return null;
         //Destroy shadow
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 }

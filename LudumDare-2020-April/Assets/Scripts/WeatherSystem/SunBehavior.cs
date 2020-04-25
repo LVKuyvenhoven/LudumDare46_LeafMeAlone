@@ -52,7 +52,8 @@ public class SunBehavior : MonoBehaviour
         }
         yield return null;
         //Destroy sunray
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 }
