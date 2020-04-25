@@ -8,6 +8,9 @@ public class sun : MonoBehaviour {
 	float Curtime;
 	public float hour;
 
+	public Material skybox;
+	float Value;
+
 	public bool Twaalf_Snachts;
 	public bool Twaalf_SMiddags;
 
@@ -55,6 +58,26 @@ public class sun : MonoBehaviour {
 		{
 			Curtime = 0;
 		}
+
+		if(Curtime <= 360 && Curtime >= 270)
+		{
+			if(Value < 1)
+			{
+				Value = Value + 0.0005f;
+			}
+			skybox.SetFloat("_Blend", Value);
+		}
+
+		if (Curtime >= 90 && Curtime <= 270)
+		{
+			if (Value < 1)
+			{
+				Value = Value - 0.0005f;
+			}
+			skybox.SetFloat("_Blend", Value);
+		}
+
+
 
 		time = speed * Time.deltaTime;
 		Curtime = Curtime + time;
