@@ -29,6 +29,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.015785687, y: 0.01577239, z: 0.030875739}
   m_Center: {x: 0, y: -1.2963773e-17, z: 0.013967675}
+--- !u!114 &7530197147720672902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7671000395113412043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5e05de04df5a949b15476c7cde1678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SunStatus: 100
+  MaxSunStatus: 100
+  WaterStatus: 100
+  MaxWaterStatus: 100
+  SunDecreaseSpeed: 2
+  SunIncreaseSpeed: 5
+  RainDecreaseSpeed: 2
+  RainIncreaseSpeed: 5
+  InSun: 0
+  InRain: 0
 --- !u!1001 &1825421441207823554
 PrefabInstance:
   m_ObjectHideFlags: 0
