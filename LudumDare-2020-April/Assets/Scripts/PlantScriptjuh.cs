@@ -81,6 +81,7 @@ public class PlantScriptjuh : MonoBehaviour
     {
         if(SunStatus <= 0 || WaterStatus <= 0)
         {
+            Scoreboard.PlantsDead = Scoreboard.PlantsDead + 1;
             Destroy(this.gameObject);
         }
     }
