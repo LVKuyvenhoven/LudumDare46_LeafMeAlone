@@ -8,11 +8,12 @@ public class WeatherManager : MonoBehaviour
     public GameObject groundObject;
     public GameObject cloudPrefabObject;
     public GameObject sunPrefabObject;
-    [HideInInspector] public GameObject minXPosition, maxXPosition, minZPosition, maxZPosition;
+    [HideInInspector] public GameObject minXPositionFrame, maxXPositionFrame, minZPositionFrame, maxZPositionFrame;
 
     [Header("Weather Spawner")]
     public int maxAmountOfCloudsAndSuns = 10;
     public int spawnRateInSeconds = 5;
+    public float spawnOffset;
 
     [Header("Sun and Cloud Stats")]
     public float growRate = 0.005f;
@@ -21,32 +22,41 @@ public class WeatherManager : MonoBehaviour
 
     [Header("Variables")]
     int sectorIndex, previousSectorIndex;
-    float randomPositionX, randomPositionZ;
+    float minXPosition, maxXPosition, minYPosition, maxYPosition;
+    float randomPositionX, randomPositionZ, previousPositionX, previousPositionZ, distanceToPreviousX, distanceToPreviousZ;
     Vector3 newCloudPosition;
-    bool spawnCloud;
+    bool spawnCloud, spawnLocationChosen;
 
     private void Awake()
     {
         maxSize = 300;
-        CreateSectors();
         StartCoroutine(SpawnCloud());
-    }
-
-    void CreateSectors()
-    {
-
     }
 
     IEnumerator SpawnCloud()
     {
         for (int i = 0; i < maxAmountOfCloudsAndSuns; i++) {
-            //Get a random sector
-            sectorIndex = Random.Range(1, 5);
+            //Get a random spawn position
+            while (!spawnLocationChosen) {
+                //Get a random position within the boundaries
+                randomPositionX = Random.Range(minXPositionFrame.transform.position.x + 3, maxXPositionFrame.transform.position.x - 3);
+                randomPositionZ = Random.Range(minZPositionFrame.transform.position.z + 3, maxZPositionFrame.transform.position.z - 3);
+                //Calculate the distance to the previous position
+                distanceToPreviousX = Mathf.Abs(randomPositionX - previousPositionX);
+                distanceToPreviousZ = Mathf.Abs(randomPositionZ - previousPositionZ);
+                if (distanceToPreviousX > spawnOffset || distanceToPreviousZ > spawnOffset) {
+                    //Pick again
+                } else {
+                    spawnLocationChosen = true;
+                }
+                yield return null;
+            }
+            spawnLocationChosen = false;
 
-            //Get random position for the object within this sector
-            randomPositionX = Random.Range(minXPosition.transform.position.x, maxXPosition.transform.position.x);
-            randomPositionZ = Random.Range(minZPosition.transform.position.z, maxZPosition.transform.position.z);
             newCloudPosition = new Vector3(randomPositionX, gameObject.transform.position.y, randomPositionZ);
+            previousPositionX = randomPositionX;
+            previousPositionZ = randomPositionZ;
+
             //Determine if a cloud or a sun must be spawned
             if (spawnCloud) {
                 spawnCloud = false;
