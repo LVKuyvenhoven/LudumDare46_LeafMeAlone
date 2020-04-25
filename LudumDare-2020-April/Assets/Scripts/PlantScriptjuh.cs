@@ -16,14 +16,16 @@ public class PlantScriptjuh : MonoBehaviour
     public float WaterStatus = 100;
     public float MaxWaterStatus = 100;
 
+    public static Vector3 posP2;
+    public static Vector3 posP1;
+
     public int SunDecreaseSpeed;
     public int SunIncreaseSpeed;
 
     public int RainDecreaseSpeed;
     public int RainIncreaseSpeed;
 
-    public GameObject player1;
-    public GameObject player2;
+    public int range = 10;
 
     public bool InSun;
     public bool InRain;
@@ -32,21 +34,18 @@ public class PlantScriptjuh : MonoBehaviour
     {
         StatusUpdate();
         CheckStatus();
+        updateUi();
+    }
 
-        Vector3 plantPos = this.transform.position;
-
-        Vector3 Player1Pos = player1.transform.position;
-        Vector3 Player2Pos = player2.transform.position;
-
-        int range = 5;
-
-        if (Vector3.Distance(Player1Pos, plantPos) < range || Vector3.Distance(Player2Pos, plantPos) < range)
+    void updateUi()
+    {
+        if(Vector3.Distance(posP1, this.transform.position) < range || Vector3.Distance(posP2, this.transform.position) < range)
         {
-            ui.enabled = true;
+            ui.GetComponent<Canvas>().enabled = true;
         }
-        else if (Vector3.Distance(Player1Pos, plantPos) > range || Vector3.Distance(Player2Pos, plantPos) > range)
+        else
         {
-            ui.enabled = false;
+            ui.GetComponent<Canvas>().enabled = false;
         }
     }
 

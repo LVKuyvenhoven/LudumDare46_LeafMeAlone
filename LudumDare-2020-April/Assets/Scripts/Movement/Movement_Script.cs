@@ -23,6 +23,15 @@ public class Movement_Script : MonoBehaviour
     void Update()
     {
         Movement();
+        if(this.gameObject.name == "Player1")
+        {
+            PlantScriptjuh.posP1 = transform.position;
+        }
+        else
+        {
+            PlantScriptjuh.posP2 = transform.position;
+        }
+        
     }
 
 
