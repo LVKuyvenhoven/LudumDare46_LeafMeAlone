@@ -30,7 +30,7 @@ public class WeatherManager : MonoBehaviour
         StartCoroutine(SpawnCloud());
     }
 
-    void CreateSector()
+    void CreateSectors()
     {
 
     }
