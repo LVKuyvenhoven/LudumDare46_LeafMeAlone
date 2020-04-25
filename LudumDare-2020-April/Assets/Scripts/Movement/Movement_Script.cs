@@ -14,7 +14,7 @@ public class Movement_Script : MonoBehaviour
     public KeyCode Forward;
     public KeyCode Back;
 
-    public float pushPower = 2.0f;
+    public float pushPower = -2000f;
 
     public KeyCode Right;
     public KeyCode Left;
