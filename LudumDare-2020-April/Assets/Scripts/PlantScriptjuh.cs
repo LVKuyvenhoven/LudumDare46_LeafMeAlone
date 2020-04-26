@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class PlantScriptjuh : MonoBehaviour
 {
+    [Header("Plant Mood Settings")]
+    [HideInInspector] public GameObject plantMoodManagerObject;
+    PlantMoodManager plantMoodScript;
+    SpriteRenderer plantFaceRenderer;
+
     public Canvas ui;
 
     public Slider WaterSlider;
@@ -29,6 +34,14 @@ public class PlantScriptjuh : MonoBehaviour
 
     public bool InSun;
     public bool InRain;
+
+    private void Awake()
+    {
+        plantMoodManagerObject = GameObject.Find("PlantMoodManager");
+        plantMoodScript = plantMoodManagerObject.GetComponent<PlantMoodManager>();
+        plantFaceRenderer = GetComponentInChildren<SpriteRenderer>();
+        plantFaceRenderer.sprite = plantMoodScript.neutralSprite;
+    }
 
     void Update()
     {
@@ -92,11 +105,13 @@ public class PlantScriptjuh : MonoBehaviour
         if(other.tag == "SunRay")
         {
             InSun = true;
+            plantFaceRenderer.sprite = plantMoodScript.happySprite;
         }
 
         if (other.tag == "Rain")
         {
             InRain = true;
+            plantFaceRenderer.sprite = plantMoodScript.happySprite;
         }
     }
 
@@ -106,10 +121,20 @@ public class PlantScriptjuh : MonoBehaviour
         {
             InSun = false;
         }
+        if (SunStatus < 50 || WaterStatus < 50) {
+            plantFaceRenderer.sprite = plantMoodScript.hungrySprite;
+        } else {
+            plantFaceRenderer.sprite = plantMoodScript.neutralSprite;
+        }
 
         if (other.tag == "Rain")
         {
             InRain = false;
+        }
+        if (SunStatus < 50 || WaterStatus < 50) {
+            plantFaceRenderer.sprite = plantMoodScript.hungrySprite;
+        } else {
+            plantFaceRenderer.sprite = plantMoodScript.neutralSprite;
         }
     }
 }
