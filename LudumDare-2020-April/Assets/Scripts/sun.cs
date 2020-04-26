@@ -86,6 +86,11 @@ public class sun : MonoBehaviour {
 			if (this.gameObject.GetComponent<Light>().intensity < 1.5f)
 			{
 				this.gameObject.GetComponent<Light>().intensity = this.gameObject.GetComponent<Light>().intensity + 0.05f * Time.deltaTime;
+				
+			}
+
+			if (outside1.GetComponent<Light>().intensity > 0)
+			{
 				outside1.GetComponent<Light>().intensity = outside1.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
 				outside2.GetComponent<Light>().intensity = outside2.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
 				outside3.GetComponent<Light>().intensity = outside3.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
@@ -97,6 +102,11 @@ public class sun : MonoBehaviour {
 			if (this.gameObject.GetComponent<Light>().intensity > 0)
 			{
 				this.gameObject.GetComponent<Light>().intensity = this.gameObject.GetComponent<Light>().intensity - 0.125f * Time.deltaTime;
+				
+			}
+
+			if (outside1.GetComponent<Light>().intensity < 1)
+			{
 				outside1.GetComponent<Light>().intensity = outside1.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
 				outside2.GetComponent<Light>().intensity = outside2.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
 				outside3.GetComponent<Light>().intensity = outside3.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
@@ -110,6 +120,6 @@ public class sun : MonoBehaviour {
 		transform.LookAt(Vector3.zero);
 		hour = Curtime / 360.0f * 24.0f;
 		int hours = (int)hour;
-		timetxt.text = "" + hours;
+		timetxt.text = hours + ":00";
 	}
 }
