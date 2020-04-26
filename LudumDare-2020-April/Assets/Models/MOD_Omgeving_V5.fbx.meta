@@ -3,7 +3,27 @@ guid: 4deabc90712a07c4e855735648286acc
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Boomgroen
+    second: {fileID: 2100000, guid: c5a6c2af5cfde8442b45ac7c8520e4ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hout donker
+    second: {fileID: 2100000, guid: 2d5613e84466ad14e89a4d57bf49aa32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 09fe677eb3d6e234394c1660782820f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.009
+    second: {fileID: 2100000, guid: 09fe677eb3d6e234394c1660782820f8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
