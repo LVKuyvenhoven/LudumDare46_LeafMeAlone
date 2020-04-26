@@ -11,6 +11,7 @@ public class CloudBehavior : MonoBehaviour
     public GameObject triggerBox;
 
     [Header("Variables")]
+    public bool thisIsARainyCloud;
     float timeToScale;
     float opacity;
     Vector3 despawnTriggerBoxPosition;
@@ -31,8 +32,11 @@ public class CloudBehavior : MonoBehaviour
             timeToScale += 1;
             //Increase opacity of shadow
             opacity += weatherScript.growRate * 2;
-            //cloudRenderer.color = new Color(1, 1, 1, opacity);
-            cloudRenderer.color = new Color(0, 0.3f, 1, opacity);
+            if (thisIsARainyCloud) {
+                cloudRenderer.color = new Color(1, 1, 1, opacity);
+            } else {
+                cloudRenderer.color = new Color(0, 0.15f, 0.5f, opacity);
+            }
             //Increase size of shadow
             gameObject.transform.localScale += new Vector3(weatherScript.growRate, weatherScript.growRate, weatherScript.growRate);
             yield return null;
@@ -49,7 +53,11 @@ public class CloudBehavior : MonoBehaviour
             timeToScale -= 2;
             //Decrease opacity of shadow
             opacity -= weatherScript.growRate * 2;
-            cloudRenderer.color = new Color(1, 1, 1, opacity);
+            if (thisIsARainyCloud) {
+                cloudRenderer.color = new Color(1, 1, 1, opacity);
+            } else {
+                cloudRenderer.color = new Color(0, 0.2f, 0.75f, opacity);
+            }
             //Decrease size of shadow
             gameObject.transform.localScale -= new Vector3(weatherScript.growRate * 2, weatherScript.growRate * 2, weatherScript.growRate * 2);
             //Move trigger box away so the plant will stop regenerating health

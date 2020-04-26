@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerBox: {fileID: 3826015062940719706}
+  thisIsARainyCloud: 0
 --- !u!1 &8040223095579081220
 GameObject:
   m_ObjectHideFlags: 0
