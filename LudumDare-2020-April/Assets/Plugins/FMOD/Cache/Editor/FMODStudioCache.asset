@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8326958710640278509
+--- !u!114 &-7119439979118058721
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/Sound Effects/Plants/Plant_Yay
   guid: 8395c24e3308a54d840b794ea5183164
   Banks:
-  - {fileID: 2684457233224156880}
+  - {fileID: -3995025008581718457}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -23,7 +23,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 25
   Length: 1156
---- !u!114 &-7624381183315704920
+--- !u!114 &-6753535182957734976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33,184 +33,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Sound Effects/Plants/Plant_Cry_Loop
+  m_Name: event:/Sound Effects/DayNight/Rooster
   m_EditorClassIdentifier: 
-  Path: event:/Sound Effects/Plants/Plant_Cry_Loop
-  guid: f56461d051054f41bc1d44565cc6b003
+  Path: event:/Sound Effects/DayNight/Rooster
+  guid: e971017d9f027140afdc46787084ddc9
   Banks:
-  - {fileID: 2684457233224156880}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 25
-  Length: 1437
---- !u!114 &-5471716488415361849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/UI/Click
-  m_EditorClassIdentifier: 
-  Path: event:/UI/Click
-  guid: 4c2029bbcc47f446af60dc43790b8753
-  Banks:
-  - {fileID: 2684457233224156880}
+  - {fileID: -3995025008581718457}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 1525
---- !u!114 &-4135748414242162210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Sound Effects/DayNight/Wolf
-  m_EditorClassIdentifier: 
-  Path: event:/Sound Effects/DayNight/Wolf
-  guid: eb7c8ffd8d715a4b8217fe1da5fec2f4
-  Banks:
-  - {fileID: 2684457233224156880}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 8900
---- !u!114 &-4045769032954334197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Music
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Music
-  guid: 1f03f706c448dd4c89bdf9a735edd8b6
-  Banks:
-  - {fileID: -1753436461871319167}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 56470
---- !u!114 &-1753436461871319167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: C:/Users/Lennart Kuyvenhoven/Downloads/Ludum_Game_FMOD/Ludum_Game/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637234993862148508
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 3789408
-  Exists: 1
---- !u!114 &-1591888638649776405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: C:/Users/Lennart Kuyvenhoven/Downloads/Ludum_Game_FMOD/Ludum_Game/Build/Desktop/Master.strings.bank
-  SubDir: 
-  lastModified: 637234993862248239
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 736
-  Exists: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: 6054313021430378365}
-  - {fileID: 2684457233224156880}
-  EditorEvents:
-  - {fileID: 2315983653931710201}
-  - {fileID: -5471716488415361849}
-  - {fileID: -8326958710640278509}
-  - {fileID: 2689391215656307301}
-  - {fileID: 6383329155165161163}
-  - {fileID: -4135748414242162210}
-  - {fileID: -7624381183315704920}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: 2684457233224156880}
-  StringsBanks:
-  - {fileID: 6054313021430378365}
-  stringsBankWriteTime: 637235089747802628
-  cacheVersion: 3
---- !u!114 &2315983653931710201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Music
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Music
-  guid: 1f03f706c448dd4c89bdf9a735edd8b6
-  Banks:
-  - {fileID: 2684457233224156880}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 3347036321238764273}
-  - {fileID: 3538976502332012235}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 56470
---- !u!114 &2684457233224156880
+  Length: 2559
+--- !u!114 &-3995025008581718457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,7 +66,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 7022848
   Exists: 1
---- !u!114 &2689391215656307301
+--- !u!114 &-2508868331697590762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,37 +76,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Sound Effects/Plants/Plant_Death
+  m_Name: event:/Sound Effects/DayNight/Wolf
   m_EditorClassIdentifier: 
-  Path: event:/Sound Effects/Plants/Plant_Death
-  guid: c8843ea6b24442458582f8630dec9c84
+  Path: event:/Sound Effects/DayNight/Wolf
+  guid: eb7c8ffd8d715a4b8217fe1da5fec2f4
   Banks:
-  - {fileID: 2684457233224156880}
+  - {fileID: -3995025008581718457}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 25
-  Length: 986
---- !u!114 &3347036321238764273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music/Light
-  m_EditorClassIdentifier: 
-  Name: Light
-  Min: 0
-  Max: 1
-  Default: 0
-  Exists: 1
---- !u!114 &3538976502332012235
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 8900
+--- !u!114 &-1984445357939949261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,7 +106,148 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
---- !u!114 &6054313021430378365
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 8465312826720408808}
+  - {fileID: -3995025008581718457}
+  EditorEvents:
+  - {fileID: 8179854361615156010}
+  - {fileID: 3091756370983554973}
+  - {fileID: -7119439979118058721}
+  - {fileID: 2766582824113347816}
+  - {fileID: -6753535182957734976}
+  - {fileID: -2508868331697590762}
+  - {fileID: 320054795686087651}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: -3995025008581718457}
+  StringsBanks:
+  - {fileID: 8465312826720408808}
+  stringsBankWriteTime: 637235089747802628
+  cacheVersion: 3
+--- !u!114 &293484159640240870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music/Light
+  m_EditorClassIdentifier: 
+  Name: Light
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &320054795686087651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound Effects/Plants/Plant_Cry_Loop
+  m_EditorClassIdentifier: 
+  Path: event:/Sound Effects/Plants/Plant_Cry_Loop
+  guid: f56461d051054f41bc1d44565cc6b003
+  Banks:
+  - {fileID: -3995025008581718457}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 25
+  Length: 1437
+--- !u!114 &2766582824113347816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound Effects/Plants/Plant_Death
+  m_EditorClassIdentifier: 
+  Path: event:/Sound Effects/Plants/Plant_Death
+  guid: c8843ea6b24442458582f8630dec9c84
+  Banks:
+  - {fileID: -3995025008581718457}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 25
+  Length: 986
+--- !u!114 &3091756370983554973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Click
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Click
+  guid: 4c2029bbcc47f446af60dc43790b8753
+  Banks:
+  - {fileID: -3995025008581718457}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1525
+--- !u!114 &8179854361615156010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Music
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Music
+  guid: 1f03f706c448dd4c89bdf9a735edd8b6
+  Banks:
+  - {fileID: -3995025008581718457}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 293484159640240870}
+  - {fileID: -1984445357939949261}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 56470
+--- !u!114 &8465312826720408808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,26 +267,3 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1136
   Exists: 1
---- !u!114 &6383329155165161163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Sound Effects/DayNight/Rooster
-  m_EditorClassIdentifier: 
-  Path: event:/Sound Effects/DayNight/Rooster
-  guid: e971017d9f027140afdc46787084ddc9
-  Banks:
-  - {fileID: 2684457233224156880}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 2559

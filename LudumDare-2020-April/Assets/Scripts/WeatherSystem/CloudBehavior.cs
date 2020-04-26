@@ -9,8 +9,6 @@ public class CloudBehavior : MonoBehaviour
     WeatherManager weatherScript;
     SpriteRenderer cloudRenderer;
     public GameObject triggerBox;
-    [HideInInspector] public GameObject sunObject;
-    sun sunScript;
 
     [Header("Variables")]
     public bool thisIsARainyCloud;
@@ -24,8 +22,6 @@ public class CloudBehavior : MonoBehaviour
         cloudRenderer = gameObject.GetComponent<SpriteRenderer>();
         skyObject = GameObject.Find("Sky");
         weatherScript = skyObject.GetComponent<WeatherManager>();
-        sunObject = GameObject.Find("sun");
-        sunScript = sunObject.GetComponent<sun>();
         //Start scaling
         StartCoroutine(SizeCloud());
     }
@@ -40,7 +36,7 @@ public class CloudBehavior : MonoBehaviour
                 cloudRenderer.color = new Color(1, 1, 1, opacity);
             } else {
                 //Set the right color for the sun/moon rays
-                if (sunScript.hour > 7 && sunScript.hour < 18) {
+                if (sun.hour > 7 && sun.hour < 18) {
                     cloudRenderer.color = new Color(1, 1, 1, opacity);
                 } else {
                     cloudRenderer.color = new Color(0, 0.15f, 0.5f, opacity);
@@ -66,7 +62,7 @@ public class CloudBehavior : MonoBehaviour
                 cloudRenderer.color = new Color(1, 1, 1, opacity);
             } else {
                 //Set the right color for the sun/moon rays
-                if (sunScript.hour > 7 && sunScript.hour < 18) {
+                if (sun.hour > 7 && sun.hour < 18) {
                     cloudRenderer.color = new Color(1, 1, 1, opacity);
                 } else {
                     cloudRenderer.color = new Color(0, 0.15f, 0.5f, opacity);
