@@ -15,8 +15,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: C:\Users\Lennart Kuyvenhoven\Downloads\Ludum_Game_FMOD\Ludum_Game\Ludum_Game.fspro
-  sourceBankPath: C:\Users\Lennart Kuyvenhoven\Downloads\Ludum_Game_FMOD\Ludum_Game\Build
+  sourceProjectPath: C:\Users\Lennart Kuyvenhoven\Downloads\Ludum_Game\Ludum_Game.fspro
+  sourceBankPath: C:\Users\Lennart Kuyvenhoven\Downloads\Ludum_Game\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0

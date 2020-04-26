@@ -28,7 +28,7 @@ public class Scoreboard : MonoBehaviour
             CurrentPlatsDead = PlantsDead;
             deadlabel.text = ""+CurrentPlatsDead;
         }
-        if (CurrentPlatsDead == 4)
+        if (CurrentPlatsDead >= 4)
         {
             SceneManager.LoadScene("Menu");
         }
