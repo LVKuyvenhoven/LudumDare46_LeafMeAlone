@@ -23,6 +23,11 @@ public class sun : MonoBehaviour {
 	public GameObject outside2;
 	public GameObject outside3;
 	public GameObject outside4;
+	public GameObject outside5;
+	public GameObject outside6;
+	public GameObject outside7;
+	public GameObject outside8;
+	public GameObject outside9;
 
 	public TextMeshProUGUI timetxt;
 	
@@ -99,6 +104,11 @@ public class sun : MonoBehaviour {
 				outside2.GetComponent<Light>().intensity = outside2.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
 				outside3.GetComponent<Light>().intensity = outside3.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
 				outside4.GetComponent<Light>().intensity = outside4.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
+				outside5.GetComponent<Light>().intensity = outside5.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
+				outside6.GetComponent<Light>().intensity = outside6.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
+				outside7.GetComponent<Light>().intensity = outside7.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
+				outside8.GetComponent<Light>().intensity = outside8.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
+				outside9.GetComponent<Light>().intensity = outside9.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
 			}
 		}
 		else if (Curtime >= 240 || Curtime <= 75)
@@ -115,6 +125,11 @@ public class sun : MonoBehaviour {
 				outside2.GetComponent<Light>().intensity = outside2.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
 				outside3.GetComponent<Light>().intensity = outside3.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
 				outside4.GetComponent<Light>().intensity = outside4.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
+				outside5.GetComponent<Light>().intensity = outside5.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
+				outside6.GetComponent<Light>().intensity = outside6.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
+				outside7.GetComponent<Light>().intensity = outside7.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
+				outside8.GetComponent<Light>().intensity = outside8.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
+				outside9.GetComponent<Light>().intensity = outside9.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
 			}
 		}
 
