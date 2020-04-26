@@ -620,7 +620,13 @@ PrefabInstance:
         type: 3}
       propertyPath: scoreboardObject
       value: 
-      objectReference: {fileID: 1346467286}
+      objectReference: {fileID: 963194225}
+    - target: {fileID: 7521236319066778506, guid: 2f329271decb96d49ab96f960293101a,
+        type: 3}
+      propertyPath: cloudPrefabObject
+      value: 
+      objectReference: {fileID: 795994648709600156, guid: bc2539c89726c5840a3239e5451f8f2f,
+        type: 3}
     - target: {fileID: 7521236319066778507, guid: 2f329271decb96d49ab96f960293101a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1757,6 +1763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1473729386}
+  ghostObject: {fileID: 0}
   speed: 10
   Forward: 119
   Back: 115
@@ -2238,6 +2245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1672658520}
+  ghostObject: {fileID: 0}
   speed: 10
   Forward: 273
   Back: 274
@@ -2435,13 +2443,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  hour: 12
   skybox: {fileID: 2100000, guid: c0f1e3ce85abdfa40bbb292130e76e98, type: 2}
   Value: 0
   Twaalf_Snachts: 0
   Twaalf_SMiddags: 0
   Zes_Avond: 1
   Zes_Ochtend: 0
+  test: {fileID: 0}
   outside1: {fileID: 1032561101}
   outside2: {fileID: 1650820999}
   outside3: {fileID: 1507517509}
