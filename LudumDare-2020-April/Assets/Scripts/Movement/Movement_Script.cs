@@ -44,87 +44,91 @@ public class Movement_Script : MonoBehaviour
         {
             move = transform.forward * 1f;
             controller.Move(move * speed * Time.deltaTime);
-            if (ghostObject != null)
-            {
-                ghostObject.transform.rotation = Quaternion.Euler(-90, 0, 0);
-            }
+            FaceForward();
         }
 
         if (Input.GetKey(Left))
         {
             move = transform.right * -1f;
             controller.Move(move * speed * Time.deltaTime);
-            if (ghostObject != null)
-            {
-                ghostObject.transform.rotation = Quaternion.Euler(-90, 0, -90);
-            }
+            FaceLeft();
         }
 
         if (Input.GetKey(Back))
         {
             move = transform.forward * -1f;
             controller.Move(move * speed * Time.deltaTime);
-            if (ghostObject != null)
-            {
-                ghostObject.transform.rotation = Quaternion.Euler(-90, 0, 180);
-            }
+            FaceBackward();
         }
 
         if (Input.GetKey(Right))
         {
             move = transform.right * 1f;
             controller.Move(move * speed * Time.deltaTime);
-            if (ghostObject != null)
-            {
-                ghostObject.transform.rotation = Quaternion.Euler(-90, 0, 90);
-            }
+            FaceRight();
         }
 
-        //Playstation Controller Test
         //DPAD
         if (thisIsPlayerTwo) {
+            //DPAD Player Two
             if (Input.GetAxis("ControllerTwoYAxis") != 0) {
                 move = transform.forward * Input.GetAxis("ControllerTwoYAxis");
                 controller.Move(move * speed * Time.deltaTime);
-            }
-            else
-            {
-                if (Input.GetAxis("ControllerTwoXAxis") != 0)
-                {
+                if (Input.GetAxis("ControllerTwoYAxis") > 0) {
+                    FaceForward();
+                } else {
+                    FaceBackward();
+                }
+            } else {
+                if (Input.GetAxis("ControllerTwoXAxis") != 0) {
                     move = transform.right * Input.GetAxis("ControllerTwoXAxis");
                     controller.Move(move * speed * Time.deltaTime);
+                    if (Input.GetAxis("ControllerTwoXAxis") > 0) {
+                        FaceRight();
+                    } else {
+                        FaceLeft();
+                    }
                 }
             }
         } else {
+            //DPAD PlayerOne
             if (Input.GetAxis("ControllerOneYAxis") != 0) {
                 move = transform.forward * Input.GetAxis("ControllerOneYAxis");
                 controller.Move(move * speed * Time.deltaTime);
-            }
-            if (Input.GetAxis("ControllerOneXAxis") != 0)
-            {
-                move = transform.right * Input.GetAxis("ControllerOneXAxis");
-                controller.Move(move * speed * Time.deltaTime);
-            }
-
-            //Joystick
-            if (Input.GetAxis("ControllerOneJoyX") != 0)
-            {
-                move = transform.right * Input.GetAxis("ControllerOneJoyX");
-                controller.Move(move * speed * Time.deltaTime);
-            }
-            else
-            {
-                if (Input.GetAxis("ControllerOneJoyY") != 0)
-                {
-                    move = transform.forward * -Input.GetAxis("ControllerOneJoyY");
+                if (Input.GetAxis("ControllerOneYAxis") > 0) {
+                    FaceForward();
+                } else {
+                    FaceBackward();
+                }
+            } else {
+                if (Input.GetAxis("ControllerOneXAxis") != 0) {
+                    move = transform.right * Input.GetAxis("ControllerOneXAxis");
                     controller.Move(move * speed * Time.deltaTime);
+                    if (Input.GetAxis("ControllerOneXAxis") > 0) {
+                        FaceRight();
+                    } else {
+                        FaceLeft();
+                    }
                 }
             }
+        }
 
+        //Joystick PlayerOne
+        if (thisIsPlayerTwo)
+        {
+            //Joystick PlayerTwo
             if (Input.GetAxis("ControllerTwoJoyX") != 0)
             {
                 move = transform.right * Input.GetAxis("ControllerTwoJoyX");
                 controller.Move(move * speed * Time.deltaTime);
+                if (Input.GetAxis("ControllerTwoJoyX") > 0)
+                {
+                    FaceRight();
+                }
+                else
+                {
+                    FaceLeft();
+                }
             }
             else
             {
@@ -132,6 +136,43 @@ public class Movement_Script : MonoBehaviour
                 {
                     move = transform.forward * -Input.GetAxis("ControllerTwoJoyY");
                     controller.Move(move * speed * Time.deltaTime);
+                    if (Input.GetAxis("ControllerTwoJoyY") < 0)
+                    {
+                        FaceForward();
+                    }
+                    else
+                    {
+                        FaceBackward();
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (Input.GetAxis("ControllerOneJoyX") != 0)
+            {
+                move = transform.right * Input.GetAxis("ControllerOneJoyX");
+                controller.Move(move * speed * Time.deltaTime);
+                if (Input.GetAxis("ControllerOneJoyX") > 0)
+                {
+                    FaceRight();
+                }
+                else
+                {
+                    FaceLeft();
+                }
+            }
+            if (Input.GetAxis("ControllerOneJoyY") != 0)
+            {
+                move = transform.forward * -Input.GetAxis("ControllerOneJoyY");
+                controller.Move(move * speed * Time.deltaTime);
+                if (Input.GetAxis("ControllerOneJoyY") < 0)
+                {
+                    FaceForward();
+                }
+                else
+                {
+                    FaceBackward();
                 }
             }
         }
@@ -145,6 +186,33 @@ public class Movement_Script : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
     }
 
+    void FaceForward()
+    {
+        if (ghostObject != null) {
+            ghostObject.transform.rotation = Quaternion.Euler(-90, 0, 0);
+        }
+    }
+
+    void FaceBackward()
+    {
+        if (ghostObject != null) {
+            ghostObject.transform.rotation = Quaternion.Euler(-90, 0, 180);
+        }
+    }
+
+    void FaceRight()
+    {
+        if (ghostObject != null) {
+            ghostObject.transform.rotation = Quaternion.Euler(-90, 0, 90);
+        }
+    }
+
+    void FaceLeft()
+    {
+        if (ghostObject != null) {
+            ghostObject.transform.rotation = Quaternion.Euler(-90, 0, -90);
+        }
+    }
 
     //Maakt het mogelijk om rigidbody's te pushen als een charactercontroller
     void OnControllerColliderHit(ControllerColliderHit hit)
