@@ -51,6 +51,8 @@ public class WeatherManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Vies, maar ach
+        DetectQuitGame();
         if (!spawnANewObject) {
             spawnANewObject = true;
             StartCoroutine(SpawnCloud());
@@ -154,6 +156,14 @@ public class WeatherManager : MonoBehaviour
             //spawnRateInSeconds += 1;
             idleTimeInSeconds -= 1;
             idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
+        }
+    }
+
+    void DetectQuitGame()
+    {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
         }
     }
 
