@@ -9,6 +9,11 @@ public class Movement_Script : MonoBehaviour
     public float speed = 12f;
     float gravity = -9.81f;
 
+    public GameObject barrel;
+    public Canvas WaterLevel;
+    public float rangeBarrel;
+    public KeyCode playerSpecialKey;
+
     Vector3 velocity;
     Vector3 move;
 
@@ -34,9 +39,22 @@ public class Movement_Script : MonoBehaviour
         {
             PlantScriptjuh.posP2 = transform.position;
         }
-        
-    }
 
+
+
+        if (Vector3.Distance(barrel.transform.position, this.transform.position) < rangeBarrel)
+        {
+            WaterLevel.enabled = true;
+            if (Input.GetKeyDown(playerSpecialKey))
+            {
+                Debug.Log("Player 2 Press en dichtbij");
+            }
+        }
+        else
+        {
+            WaterLevel.enabled = false;
+        }
+    }
 
     void Movement()
     {
