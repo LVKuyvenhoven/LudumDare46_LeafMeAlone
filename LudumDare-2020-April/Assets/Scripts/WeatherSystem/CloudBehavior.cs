@@ -31,7 +31,8 @@ public class CloudBehavior : MonoBehaviour
             timeToScale += 1;
             //Increase opacity of shadow
             opacity += weatherScript.growRate * 2;
-            cloudRenderer.color = new Color(1, 1, 1, opacity);
+            //cloudRenderer.color = new Color(1, 1, 1, opacity);
+            cloudRenderer.color = new Color(0, 0.3f, 1, opacity);
             //Increase size of shadow
             gameObject.transform.localScale += new Vector3(weatherScript.growRate, weatherScript.growRate, weatherScript.growRate);
             yield return null;

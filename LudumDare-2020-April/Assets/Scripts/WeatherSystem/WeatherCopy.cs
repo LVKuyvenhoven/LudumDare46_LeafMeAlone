@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeatherManager : MonoBehaviour
+public class WeatherCopy : MonoBehaviour
 {
     [Header("References")]
     public GameObject groundObject;
@@ -151,14 +151,13 @@ public class WeatherManager : MonoBehaviour
         if (spawnCloud)
         {
             spawnCloud = false;
-            //+0.2f
-            newCloudPosition = new Vector3(randomPositionX, groundObject.transform.position.y + 0.8f, randomPositionZ);
+            newCloudPosition = new Vector3(randomPositionX, groundObject.transform.position.y + 0.2f, randomPositionZ);
             Instantiate(cloudPrefabObject, newCloudPosition, Quaternion.Euler(90, 0, 0), gameObject.transform);
         }
         else
         {
             spawnCloud = true;
-            newCloudPosition = new Vector3(randomPositionX, groundObject.transform.position.y + 0.8f, randomPositionZ);
+            newCloudPosition = new Vector3(randomPositionX, groundObject.transform.position.y + 0.2f, randomPositionZ);
             Instantiate(sunPrefabObject, newCloudPosition, Quaternion.Euler(90, 0, 0), gameObject.transform);
         }
         //Delay before spawning another cloud
