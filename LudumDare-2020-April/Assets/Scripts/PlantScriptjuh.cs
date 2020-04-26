@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class PlantScriptjuh : MonoBehaviour
 {
+    [Header("Plant Mood Settings")]
+    [HideInInspector] public GameObject plantMoodManagerObject;
+    PlantMoodManager plantMoodScript;
+    SpriteRenderer plantFaceRenderer;
+
     public Canvas ui;
 
     public Slider WaterSlider;
@@ -29,6 +34,14 @@ public class PlantScriptjuh : MonoBehaviour
 
     public bool InSun;
     public bool InRain;
+
+    private void Awake()
+    {
+        plantMoodManagerObject = GameObject.Find("PlantMoodManager");
+        plantMoodScript = plantMoodManagerObject.GetComponent<PlantMoodManager>();
+        plantFaceRenderer = GetComponentInChildren<SpriteRenderer>();
+        plantFaceRenderer.sprite = plantMoodScript.neutralSprite;
+    }
 
     void Update()
     {
@@ -84,32 +97,77 @@ public class PlantScriptjuh : MonoBehaviour
             Scoreboard.PlantsDead = Scoreboard.PlantsDead + 1;
             Destroy(this.gameObject);
         }
+        CheckMood();
     }
 
+    void CheckMood()
+    {
+        //Display mood
+        if ((SunStatus < 50 && WaterStatus < 50))
+        {
+            //Cry if both statusses are below 50
+            plantFaceRenderer.sprite = plantMoodScript.hungrySprite;
+        }
+        else
+        {
+            //Cry if hungry and not in the sun
+            if (SunStatus < 50 && !InSun)
+            {
+                plantFaceRenderer.sprite = plantMoodScript.hungrySprite;
+            }
+            else
+            {
+                //Cry if thirsty and not in the rain
+                if (WaterStatus < 50 && !InRain)
+                {
+                    plantFaceRenderer.sprite = plantMoodScript.hungrySprite;
+                }
+                else
+                {
+                    if ((SunStatus < 50 || WaterStatus < 50) || (InRain || InSun))
+                    {
+                        plantFaceRenderer.sprite = plantMoodScript.happySprite;
+                    }
+                    else
+                    {
+                        plantFaceRenderer.sprite = plantMoodScript.neutralSprite;
+                    }
+                }
+            }
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "SunRay")
-        {
+        if(other.tag == "SunRay") {
             InSun = true;
+            //plantFaceRenderer.sprite = plantMoodScript.happySprite;
         }
-
-        if (other.tag == "Rain")
-        {
+        if (other.tag == "Rain") {
             InRain = true;
+            //plantFaceRenderer.sprite = plantMoodScript.happySprite;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "SunRay")
-        {
+        if (other.tag == "SunRay") {
             InSun = false;
         }
+        if (SunStatus < 50 || WaterStatus < 50) {
+            //plantFaceRenderer.sprite = plantMoodScript.hungrySprite;
+        } else {
+            //plantFaceRenderer.sprite = plantMoodScript.neutralSprite;
+        }
 
-        if (other.tag == "Rain")
-        {
+        if (other.tag == "Rain") {
             InRain = false;
         }
+        if (SunStatus < 50 || WaterStatus < 50) {
+            //plantFaceRenderer.sprite = plantMoodScript.hungrySprite;
+        } else {
+            //plantFaceRenderer.sprite = plantMoodScript.neutralSprite;
+        }
     }
+
 }
