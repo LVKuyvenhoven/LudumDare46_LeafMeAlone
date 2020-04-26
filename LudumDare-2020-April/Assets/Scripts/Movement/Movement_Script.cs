@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement_Script : MonoBehaviour
 {
     public CharacterController controller;
+    public GameObject ghostObject;
     public float speed = 12f;
     float gravity = -9.81f;
 
@@ -43,24 +44,40 @@ public class Movement_Script : MonoBehaviour
         {
             move = transform.forward * 1f;
             controller.Move(move * speed * Time.deltaTime);
+            if (ghostObject != null)
+            {
+                ghostObject.transform.rotation = Quaternion.Euler(-90, 0, 0);
+            }
         }
 
         if (Input.GetKey(Left))
         {
             move = transform.right * -1f;
             controller.Move(move * speed * Time.deltaTime);
+            if (ghostObject != null)
+            {
+                ghostObject.transform.rotation = Quaternion.Euler(-90, 0, -90);
+            }
         }
 
         if (Input.GetKey(Back))
         {
             move = transform.forward * -1f;
             controller.Move(move * speed * Time.deltaTime);
+            if (ghostObject != null)
+            {
+                ghostObject.transform.rotation = Quaternion.Euler(-90, 0, 180);
+            }
         }
 
         if (Input.GetKey(Right))
         {
             move = transform.right * 1f;
             controller.Move(move * speed * Time.deltaTime);
+            if (ghostObject != null)
+            {
+                ghostObject.transform.rotation = Quaternion.Euler(-90, 0, 90);
+            }
         }
 
         //Playstation Controller Test
