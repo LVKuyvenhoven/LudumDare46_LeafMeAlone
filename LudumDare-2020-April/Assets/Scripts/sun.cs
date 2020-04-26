@@ -17,6 +17,11 @@ public class sun : MonoBehaviour {
 	public bool Zes_Avond;
 	public bool Zes_Ochtend;
 
+	public GameObject outside1;
+	public GameObject outside2;
+	public GameObject outside3;
+	public GameObject outside4;
+
 	public TextMeshProUGUI timetxt;
 	
 
@@ -81,6 +86,10 @@ public class sun : MonoBehaviour {
 			if (this.gameObject.GetComponent<Light>().intensity < 1.5f)
 			{
 				this.gameObject.GetComponent<Light>().intensity = this.gameObject.GetComponent<Light>().intensity + 0.05f * Time.deltaTime;
+				outside1.GetComponent<Light>().intensity = outside1.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
+				outside2.GetComponent<Light>().intensity = outside2.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
+				outside3.GetComponent<Light>().intensity = outside3.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
+				outside4.GetComponent<Light>().intensity = outside4.GetComponent<Light>().intensity - 0.05f * Time.deltaTime;
 			}
 		}
 		else if (Curtime >= 240 || Curtime <= 75)
@@ -88,6 +97,10 @@ public class sun : MonoBehaviour {
 			if (this.gameObject.GetComponent<Light>().intensity > 0)
 			{
 				this.gameObject.GetComponent<Light>().intensity = this.gameObject.GetComponent<Light>().intensity - 0.125f * Time.deltaTime;
+				outside1.GetComponent<Light>().intensity = outside1.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
+				outside2.GetComponent<Light>().intensity = outside2.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
+				outside3.GetComponent<Light>().intensity = outside3.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
+				outside4.GetComponent<Light>().intensity = outside4.GetComponent<Light>().intensity + 0.15f * Time.deltaTime;
 			}
 		}
 

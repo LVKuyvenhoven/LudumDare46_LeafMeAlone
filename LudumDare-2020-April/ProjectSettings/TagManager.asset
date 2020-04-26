@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rain
   - SunRay
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - 
   - MainLight
   - SunRay
-  - 
-  - 
+  - Floor
+  - Window
   - 
   - 
   - 
