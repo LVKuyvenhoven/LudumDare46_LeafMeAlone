@@ -6,11 +6,16 @@ public class WeatherManager : MonoBehaviour
 {
     [Header("References")]
     public GameObject groundObject;
+    public GameObject plantThree;
+    public GameObject plantFour;
+    public GameObject plantFive;
+    public GameObject plantSix;
     public GameObject scoreboardObject;
     Scoreboard scoreboardScript;
     public GameObject cloudPrefabObject;
     public GameObject sunPrefabObject;
     [HideInInspector] public GameObject minXPositionFrame, maxXPositionFrame, minZPositionFrame, maxZPositionFrame;
+    Rigidbody plantRig;
 
     [Header("Weather Spawner")]
     public float spawnRateInSeconds = 5;
@@ -51,47 +56,111 @@ public class WeatherManager : MonoBehaviour
             StartCoroutine(SpawnCloud());
         }
         //Start level 2
-        if (scoreboardScript.timeAlive >= 20 && level == 1)
+        if (scoreboardScript.timeAlive >= 10 && level == 1)
         {
             level = 2;
-            spawnRateInSeconds += 1;
-            idleTimeInSeconds -= 1;
-            idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
+            if (plantThree != null) {
+                plantThree.SetActive(true);
+                plantRig = plantThree.GetComponent<Rigidbody>();
+                plantRig.drag = 0;
+                StartCoroutine(SetDragOfPlant());
+            }
         }
         //Start level 3
-        if (scoreboardScript.timeAlive >= 40 && level == 2)
+        if (scoreboardScript.timeAlive >= 20 && level == 2)
         {
             level = 3;
-            spawnRateInSeconds += 1;
+            //spawnRateInSeconds += 1;
             idleTimeInSeconds -= 1;
             idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
         }
         //Start level 4
-        if (scoreboardScript.timeAlive >= 60 && level == 1)
+        if (scoreboardScript.timeAlive >= 30 && level == 3)
         {
             level = 4;
-            spawnRateInSeconds += 1;
-            idleTimeInSeconds -= 1;
-            idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
+            if (plantFour != null) {
+                plantFour.SetActive(true);
+                plantRig = plantFour.GetComponent<Rigidbody>();
+                plantRig.drag = 0;
+                StartCoroutine(SetDragOfPlant());
+            }
         }
         //Start level 5
-        if (scoreboardScript.timeAlive >= 80 && level == 1)
+        if (scoreboardScript.timeAlive >= 40 && level == 4)
         {
             level = 5;
-            spawnRateInSeconds += 1;
+            //spawnRateInSeconds += 1;
             idleTimeInSeconds -= 1;
             idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
         }
         //Start level 6
-        if (scoreboardScript.timeAlive >= 80 && level == 1)
+        if (scoreboardScript.timeAlive >= 50 && level == 5)
         {
             level = 6;
-            spawnRateInSeconds += 1;
+            if (plantFive != null) {
+                plantFive.SetActive(true);
+                plantRig = plantFive.GetComponent<Rigidbody>();
+                plantRig.drag = 0;
+                StartCoroutine(SetDragOfPlant());
+            }
+        }
+        //Start level 7
+        if (scoreboardScript.timeAlive >= 60 && level == 6)
+        {
+            level = 7;
+            //spawnRateInSeconds += 1;
             idleTimeInSeconds -= 1;
             idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
-            Debug.Log(idleTimeInSeconds);
-            Debug.Log(spawnRateInSeconds);
         }
+        //Start level 8
+        if (scoreboardScript.timeAlive >= 70 && level == 7)
+        {
+            level = 8;
+            if (plantSix != null) {
+                plantSix.SetActive(true);
+                plantRig = plantSix.GetComponent<Rigidbody>();
+                plantRig.drag = 0;
+                StartCoroutine(SetDragOfPlant());
+            }
+        }
+        //Start level 9
+        if (scoreboardScript.timeAlive >= 80 && level == 8)
+        {
+            level = 9;
+            //spawnRateInSeconds += 1;
+            idleTimeInSeconds -= 1;
+            idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
+        }
+        //Start level 10
+        if (scoreboardScript.timeAlive >= 90 && level == 9)
+        {
+            level = 10;
+            //spawnRateInSeconds += 1;
+            idleTimeInSeconds -= 1;
+            idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
+        }
+        //Start level 11
+        if (scoreboardScript.timeAlive >= 120 && level == 10)
+        {
+            level = 11;
+            //spawnRateInSeconds += 1;
+            idleTimeInSeconds -= 1;
+            idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
+        }
+        //Start level 12
+        if (scoreboardScript.timeAlive >= 150 && level == 11)
+        {
+            level = 12;
+            //spawnRateInSeconds += 1;
+            idleTimeInSeconds -= 1;
+            idleTimeInSeconds = Mathf.Clamp(idleTimeInSeconds, 1, 100);
+        }
+    }
+
+    IEnumerator SetDragOfPlant()
+    {
+        yield return new WaitForSeconds(3f);
+        plantRig.drag = 5;
     }
 
     IEnumerator SpawnCloud()
