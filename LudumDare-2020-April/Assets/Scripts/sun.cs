@@ -6,7 +6,7 @@ public class sun : MonoBehaviour {
 	public float speed;
 	float time;
 	float Curtime;
-	public float hour;
+	public static float hour;
 
 	public Material skybox;
 	public float Value;
@@ -16,6 +16,8 @@ public class sun : MonoBehaviour {
 
 	public bool Zes_Avond;
 	public bool Zes_Ochtend;
+
+	public GameObject test;
 
 	public GameObject outside1;
 	public GameObject outside2;
@@ -58,7 +60,9 @@ public class sun : MonoBehaviour {
 
 	void Update () 
 	{
-		if(Curtime >= 360)
+		updateLight();
+
+		if (Curtime >= 360)
 		{
 			Curtime = 0;
 		}
@@ -121,5 +125,13 @@ public class sun : MonoBehaviour {
 		hour = Curtime / 360.0f * 24.0f;
 		int hours = (int)hour;
 		timetxt.text = hours + ":00";
+	}
+
+	void updateLight()
+	{
+		if(hour > 18 && hour < 4)
+		{
+			test.transform.GetChild(1).gameObject.GetComponent<Light>().intensity = 5;
+		}
 	}
 }
