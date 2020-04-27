@@ -6,8 +6,8 @@ using TMPro;
 
 public class Scoreboard : MonoBehaviour
 {
-    public static int PlantsDead;
-    public static int CurrentPlatsDead;
+    public int PlantsDead;
+    public int CurrentPlatsDead;
 
     public float timeAlive;
 

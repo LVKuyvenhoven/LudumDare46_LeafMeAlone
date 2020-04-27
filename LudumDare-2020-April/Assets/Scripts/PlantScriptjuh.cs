@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class PlantScriptjuh : MonoBehaviour
 {
+    public GameObject scoreboard;
+    Scoreboard scoreboardScript;
+
     [Header("Plant Mood Settings")]
     [HideInInspector] public GameObject plantMoodManagerObject;
     PlantMoodManager plantMoodScript;
@@ -45,6 +48,7 @@ public class PlantScriptjuh : MonoBehaviour
 
     private void Awake()
     {
+        scoreboardScript = scoreboard.GetComponent<Scoreboard>();
         getWater = FMODUnity.RuntimeManager.CreateInstance("event:/Sound Effects/Watering/Watering");
         p1 = GameObject.Find("Player1");
         p2 = GameObject.Find("Player2");
@@ -147,7 +151,7 @@ public class PlantScriptjuh : MonoBehaviour
     {
         if(SunStatus <= 0 || WaterStatus <= 0)
         {
-            Scoreboard.PlantsDead = Scoreboard.PlantsDead + 1;
+            scoreboardScript.PlantsDead = scoreboardScript.PlantsDead + 1;
             plantMoodScript.StopHungry(gameObject.name);
             plantMoodScript.PlayDeath(gameObject.name);
             Destroy(this.gameObject);

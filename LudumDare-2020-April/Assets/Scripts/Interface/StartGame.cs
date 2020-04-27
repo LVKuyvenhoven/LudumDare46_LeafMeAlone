@@ -24,7 +24,7 @@ public class StartGame : MonoBehaviour
     {
         clickSound.start();
         SceneManager.LoadScene("Game");
-        Scoreboard.CurrentPlatsDead = 0;
+        //Scoreboard.CurrentPlatsDead = 0;
     }
 
 }
