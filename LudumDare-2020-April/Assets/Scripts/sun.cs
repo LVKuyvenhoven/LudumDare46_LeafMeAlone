@@ -139,7 +139,7 @@ public class sun : MonoBehaviour {
 		transform.LookAt(Vector3.zero);
 		hour = Curtime / 360.0f * 24.0f;
 		int hours = (int)hour;
-		timetxt.text = hours + ":00";
+		//.text = hours + ":00";
 	}
 
 	void updateLight()

@@ -18,7 +18,7 @@ public class Scoreboard : MonoBehaviour
     {
 
         CurrentPlatsDead = 0;
-        deadlabel.text = "" + (4 - CurrentPlatsDead);
+        deadlabel.text = "" + (0 - CurrentPlatsDead);
         timelabel.text = "00:00";
     }
 
@@ -27,7 +27,7 @@ public class Scoreboard : MonoBehaviour
         if(CurrentPlatsDead != PlantsDead)
         {
             CurrentPlatsDead = PlantsDead;
-            deadlabel.text = "" + (4 - CurrentPlatsDead);
+            deadlabel.text = "" + (0 + CurrentPlatsDead);
         }
         if (CurrentPlatsDead >= 4)
         {

@@ -24,6 +24,7 @@ public class Click : MonoBehaviour
         else
         {
             Application.LoadLevel(scene);
+            Scoreboard.CurrentPlatsDead = 0;
             //SceneManager.LoadScene(scene);
         }
     }
