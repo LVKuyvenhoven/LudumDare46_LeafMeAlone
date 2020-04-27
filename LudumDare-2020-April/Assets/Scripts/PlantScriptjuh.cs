@@ -58,7 +58,25 @@ public class PlantScriptjuh : MonoBehaviour
 
     void updateUi()
     {
-        if(Vector3.Distance(posP1, this.transform.position) < range)
+        if (Vector3.Distance(posP2, this.transform.position) < range)
+        {
+            WaterAmount = p2.GetComponent<Movement_Script>().WaterAmount;
+            ui.GetComponent<Canvas>().enabled = true;
+            if (Input.GetKeyDown(KeyCode.Keypad0))
+            {
+                if (WaterAmount >= 25)
+                {
+                    if (WaterStatus < 90)
+                    {
+                        WaterAmount = WaterAmount - 25;
+                        WaterStatus = WaterStatus + 10;
+                        p2.GetComponent<Movement_Script>().WaterAmount = WaterAmount;
+                    }
+                }
+            }
+        }
+
+        if (Vector3.Distance(posP1, this.transform.position) < range)
         {
             WaterAmount = p1.GetComponent<Movement_Script>().WaterAmount;
             ui.GetComponent<Canvas>().enabled = true;
@@ -74,23 +92,11 @@ public class PlantScriptjuh : MonoBehaviour
                     }
                 }
             }
-        }else 
-        if (Vector3.Distance(posP2, this.transform.position) < range)
-        {
-            ui.GetComponent<Canvas>().enabled = true;
-            if (Input.GetKeyDown(KeyCode.Keypad0))
-            {
-                if(WaterAmount >= 25){
-                    if (WaterStatus < 90)
-                    {
-                        WaterAmount = WaterAmount - 25;
-                        WaterStatus = WaterStatus + 10;
-                        p2.GetComponent<Movement_Script>().WaterAmount = WaterAmount;
-                    }
-                }
-            }
         }
-        else
+
+        
+
+        if (Vector3.Distance(posP2, this.transform.position) > range && Vector3.Distance(posP1, this.transform.position) > range)
         {
             ui.GetComponent<Canvas>().enabled = false;
         }

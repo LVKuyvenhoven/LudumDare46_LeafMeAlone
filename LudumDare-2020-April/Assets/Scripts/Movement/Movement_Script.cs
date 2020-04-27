@@ -18,7 +18,6 @@ public class Movement_Script : MonoBehaviour
 
     public float rangeBarrel;
     public KeyCode playerSpecialKey;
-    public static KeyCode key;
 
     Vector3 velocity;
     Vector3 move;
@@ -36,7 +35,6 @@ public class Movement_Script : MonoBehaviour
 
     private void Start()
     {
-        key = playerSpecialKey;
         WaterAmount = 0;
         WaterValue.value = WaterAmount;
     }
@@ -52,8 +50,6 @@ public class Movement_Script : MonoBehaviour
         {
             PlantScriptjuh.posP2 = transform.position;
         }
-
-
 
         if (Vector3.Distance(barrel.transform.position, this.transform.position) < rangeBarrel)
         {
