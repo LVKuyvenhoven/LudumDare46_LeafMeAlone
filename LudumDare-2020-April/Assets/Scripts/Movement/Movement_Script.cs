@@ -220,28 +220,56 @@ public class Movement_Script : MonoBehaviour
     void FaceForward()
     {
         if (ghostObject != null) {
-            ghostObject.transform.rotation = Quaternion.Euler(-90, 0, 0);
+            if (ghostObject.name == "Opa")
+            {
+                ghostObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                ghostObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
     }
 
     void FaceBackward()
     {
         if (ghostObject != null) {
-            ghostObject.transform.rotation = Quaternion.Euler(-90, 0, 180);
+            if (ghostObject.name == "Opa")
+            {
+                ghostObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            else
+            {
+                ghostObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
         }
     }
 
     void FaceRight()
     {
         if (ghostObject != null) {
-            ghostObject.transform.rotation = Quaternion.Euler(-90, 0, 90);
+            if (ghostObject.name == "Opa")
+            {
+                ghostObject.transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
+            else
+            {
+                ghostObject.transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
         }
     }
 
     void FaceLeft()
     {
         if (ghostObject != null) {
-            ghostObject.transform.rotation = Quaternion.Euler(-90, 0, -90);
+            if (ghostObject.name == "Opa")
+            {
+                ghostObject.transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
+            else
+            {
+                ghostObject.transform.rotation = Quaternion.Euler(0, -90, -0);
+            }
         }
     }
 
