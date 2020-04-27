@@ -39,6 +39,8 @@ public class PlantScriptjuh : MonoBehaviour
     public bool InSun;
     public bool InRain;
 
+    bool startCrying, startJay, startDeath;
+
     private void Awake()
     {
         p1 = GameObject.Find("Player1");
@@ -136,6 +138,8 @@ public class PlantScriptjuh : MonoBehaviour
         if(SunStatus <= 0 || WaterStatus <= 0)
         {
             Scoreboard.PlantsDead = Scoreboard.PlantsDead + 1;
+            plantMoodScript.StopHungry(gameObject.name);
+            plantMoodScript.PlayDeath(gameObject.name);
             Destroy(this.gameObject);
         }
         CheckMood();
@@ -148,6 +152,11 @@ public class PlantScriptjuh : MonoBehaviour
         {
             //Cry if both statusses are below 50
             plantFaceRenderer.sprite = plantMoodScript.hungrySprite;
+            if (!startCrying)
+            {
+                startCrying = true;
+                plantMoodScript.PlayHungry(gameObject.name);
+            }
         }
         else
         {
@@ -155,6 +164,12 @@ public class PlantScriptjuh : MonoBehaviour
             if (SunStatus < 50 && !InSun)
             {
                 plantFaceRenderer.sprite = plantMoodScript.hungrySprite;
+                if (!startCrying)
+                {
+                    startCrying = true;
+                    startJay = false;
+                    plantMoodScript.PlayHungry(gameObject.name);
+                }
             }
             else
             {
@@ -162,16 +177,31 @@ public class PlantScriptjuh : MonoBehaviour
                 if (WaterStatus < 50 && !InRain)
                 {
                     plantFaceRenderer.sprite = plantMoodScript.hungrySprite;
+                    if (!startCrying)
+                    {
+                        startCrying = true;
+                        startJay = false;
+                        plantMoodScript.PlayHungry(gameObject.name);
+                    }
                 }
                 else
                 {
                     if ((SunStatus < 50 || WaterStatus < 50) || (InRain || InSun))
                     {
                         plantFaceRenderer.sprite = plantMoodScript.happySprite;
+                        if (!startJay)
+                        {
+                            startJay = true;
+                            startCrying = false;
+                            plantMoodScript.PlayJay(gameObject.name);
+                        }
                     }
                     else
                     {
+                        startJay = false;
+                        startCrying = false;
                         plantFaceRenderer.sprite = plantMoodScript.neutralSprite;
+                        plantMoodScript.StopHungry(gameObject.name);
                     }
                 }
             }
