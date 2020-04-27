@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 using UnityEngine.UI;
 
 public class Movement_Script : MonoBehaviour
@@ -30,14 +31,24 @@ public class Movement_Script : MonoBehaviour
     public KeyCode Right;
     public KeyCode Left;
 
+    FMOD.Studio.EventInstance getWater;
+
     [Header("Set Playstation Controller")]
     public bool thisIsPlayerTwo;
+    public string specialKeyPlaystation;
+
+    private void Awake()
+    {
+        getWater = FMODUnity.RuntimeManager.CreateInstance("event:/Sound Effects/Watering/Water_Fill");
+    }
 
     private void Start()
     {
+        RuntimeManager.AttachInstanceToGameObject(getWater, gameObject.transform, GetComponent<Rigidbody>());
         WaterAmount = 0;
         WaterValue.value = WaterAmount;
     }
+
     void Update()
     {
         WaterValue.value = WaterAmount;
@@ -54,10 +65,11 @@ public class Movement_Script : MonoBehaviour
         if (Vector3.Distance(barrel.transform.position, this.transform.position) < rangeBarrel)
         {
             WaterLevel.enabled = true;
-            if (Input.GetKeyDown(playerSpecialKey))
+            if (Input.GetKeyDown(playerSpecialKey) || Input.GetButtonDown(specialKeyPlaystation))
             {
                 if(WaterAmount < 100)
                 {
+                    getWater.start();
                     WaterAmount = WaterAmount + 20;
                     WaterValue.value = WaterAmount;
                 }
@@ -145,68 +157,67 @@ public class Movement_Script : MonoBehaviour
         }
 
         //Joystick PlayerOne
-        if (thisIsPlayerTwo)
-        {
-            //Joystick PlayerTwo
-            if (Input.GetAxis("ControllerTwoJoyX") != 0)
-            {
-                move = transform.right * Input.GetAxis("ControllerTwoJoyX");
-                controller.Move(move * speed * Time.deltaTime);
-                if (Input.GetAxis("ControllerTwoJoyX") > 0)
-                {
-                    FaceRight();
-                }
-                else
-                {
-                    FaceLeft();
-                }
-            }
-            else
-            {
-                if (Input.GetAxis("ControllerTwoJoyY") != 0)
-                {
-                    move = transform.forward * -Input.GetAxis("ControllerTwoJoyY");
-                    controller.Move(move * speed * Time.deltaTime);
-                    if (Input.GetAxis("ControllerTwoJoyY") < 0)
-                    {
-                        FaceForward();
-                    }
-                    else
-                    {
-                        FaceBackward();
-                    }
-                }
-            }
-        }
-        else
-        {
-            if (Input.GetAxis("ControllerOneJoyX") != 0)
-            {
-                move = transform.right * Input.GetAxis("ControllerOneJoyX");
-                controller.Move(move * speed * Time.deltaTime);
-                if (Input.GetAxis("ControllerOneJoyX") > 0)
-                {
-                    FaceRight();
-                }
-                else
-                {
-                    FaceLeft();
-                }
-            }
-            if (Input.GetAxis("ControllerOneJoyY") != 0)
-            {
-                move = transform.forward * -Input.GetAxis("ControllerOneJoyY");
-                controller.Move(move * speed * Time.deltaTime);
-                if (Input.GetAxis("ControllerOneJoyY") < 0)
-                {
-                    FaceForward();
-                }
-                else
-                {
-                    FaceBackward();
-                }
-            }
-        }
+        //if (thisIsPlayerTwo)
+        //{
+        //    if (Input.GetAxis("ControllerTwoJoyX") != 0)
+        //    {
+        //        move = transform.right * Input.GetAxis("ControllerTwoJoyX");
+        //        controller.Move(move * speed * Time.deltaTime);
+        //        if (Input.GetAxis("ControllerTwoJoyX") > 0)
+        //        {
+        //            FaceRight();
+        //        }
+        //        else
+        //        {
+        //            FaceLeft();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        if (Input.GetAxis("ControllerTwoJoyY") != 0)
+        //        {
+        //            move = transform.forward * -Input.GetAxis("ControllerTwoJoyY");
+        //            controller.Move(move * speed * Time.deltaTime);
+        //            if (Input.GetAxis("ControllerTwoJoyY") < 0)
+        //            {
+        //                FaceForward();
+        //            }
+        //            else
+        //            {
+        //                FaceBackward();
+        //            }
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    if (Input.GetAxis("ControllerOneJoyX") != 0)
+        //    {
+        //        move = transform.right * Input.GetAxis("ControllerOneJoyX");
+        //        controller.Move(move * speed * Time.deltaTime);
+        //        if (Input.GetAxis("ControllerOneJoyX") > 0)
+        //        {
+        //            FaceRight();
+        //        }
+        //        else
+        //        {
+        //            FaceLeft();
+        //        }
+        //    }
+        //    if (Input.GetAxis("ControllerOneJoyY") != 0)
+        //    {
+        //        move = transform.forward * -Input.GetAxis("ControllerOneJoyY");
+        //        controller.Move(move * speed * Time.deltaTime);
+        //        if (Input.GetAxis("ControllerOneJoyY") < 0)
+        //        {
+        //            FaceForward();
+        //        }
+        //        else
+        //        {
+        //            FaceBackward();
+        //        }
+        //    }
+        //}
 
         if (velocity.y < 0)
         {

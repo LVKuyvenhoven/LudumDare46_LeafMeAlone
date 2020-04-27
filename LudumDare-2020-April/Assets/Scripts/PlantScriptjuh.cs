@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using FMODUnity;
 using UnityEngine;
 
 public class PlantScriptjuh : MonoBehaviour
@@ -40,15 +41,22 @@ public class PlantScriptjuh : MonoBehaviour
     public bool InRain;
 
     bool startCrying, startJay, startDeath;
+    FMOD.Studio.EventInstance getWater;
 
     private void Awake()
     {
+        getWater = FMODUnity.RuntimeManager.CreateInstance("event:/Sound Effects/Watering/Watering");
         p1 = GameObject.Find("Player1");
         p2 = GameObject.Find("Player2");
         plantMoodManagerObject = GameObject.Find("PlantMoodManager");
         plantMoodScript = plantMoodManagerObject.GetComponent<PlantMoodManager>();
         plantFaceRenderer = GetComponentInChildren<SpriteRenderer>();
         plantFaceRenderer.sprite = plantMoodScript.neutralSprite;
+    }
+
+    private void Start()
+    {
+        RuntimeManager.AttachInstanceToGameObject(getWater, gameObject.transform, GetComponent<Rigidbody>());
     }
 
     void Update()
@@ -64,12 +72,13 @@ public class PlantScriptjuh : MonoBehaviour
         {
             WaterAmount = p2.GetComponent<Movement_Script>().WaterAmount;
             ui.GetComponent<Canvas>().enabled = true;
-            if (Input.GetKeyDown(KeyCode.Keypad0))
+            if (Input.GetKeyDown(KeyCode.RightControl) || Input.GetButtonDown("XControllerTwo"))
             {
                 if (WaterAmount >= 25)
                 {
                     if (WaterStatus < 90)
                     {
+                        getWater.start();
                         WaterAmount = WaterAmount - 25;
                         WaterStatus = WaterStatus + 10;
                         p2.GetComponent<Movement_Script>().WaterAmount = WaterAmount;
@@ -82,12 +91,13 @@ public class PlantScriptjuh : MonoBehaviour
         {
             WaterAmount = p1.GetComponent<Movement_Script>().WaterAmount;
             ui.GetComponent<Canvas>().enabled = true;
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R) || Input.GetButtonDown("XControllerOne"))
             {
                 if (WaterAmount >= 25)
                 {
                     if (WaterStatus < 90)
                     {
+                        getWater.start();
                         WaterAmount = WaterAmount - 25;
                         WaterStatus = WaterStatus + 10;
                         p1.GetComponent<Movement_Script>().WaterAmount = WaterAmount;

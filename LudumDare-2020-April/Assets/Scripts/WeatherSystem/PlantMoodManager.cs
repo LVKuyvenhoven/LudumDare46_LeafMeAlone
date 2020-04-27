@@ -97,26 +97,26 @@ public class PlantMoodManager : MonoBehaviour
         {
             plantOneCry.start();
         }
-        //if (name == "planttwo")
-        //{
-        //    plantTwoCry.start();
-        //}
-        //if (name == "plantthree")
-        //{
-        //    plantThreeCry.start();
-        //}
-        //if (name == "plantfour")
-        //{
-        //    plantFourCry.start();
-        //}
-        //if (name == "plantfive")
-        //{
-        //    plantFiveCry.start();
-        //}
-        //if (name == "plantsix")
-        //{
-        //    plantSixCry.start();
-        //}
+        if (name == "planttwo")
+        {
+            plantTwoCry.start();
+        }
+        if (name == "plantthree")
+        {
+            plantThreeCry.start();
+        }
+        if (name == "plantfour")
+        {
+            plantFourCry.start();
+        }
+        if (name == "plantfive")
+        {
+            plantFiveCry.start();
+        }
+        if (name == "plantsix")
+        {
+            plantSixCry.start();
+        }
     }
 
     public void PlayJay(string name)
@@ -125,26 +125,26 @@ public class PlantMoodManager : MonoBehaviour
         {
             plantOneJoy.start();
         }
-        //if (name == "planttwo")
-        //{
-        //    plantTwoJoy.start();
-        //}
-        //if (name == "plantthree")
-        //{
-        //    plantThreeJoy.start();
-        //}
-        //if (name == "plantfour")
-        //{
-        //    plantFourJoy.start();
-        //}
-        //if (name == "plantfive")
-        //{
-        //    plantFiveJoy.start();
-        //}
-        //if (name == "plantsix")
-        //{
-        //    plantSixJoy.start();
-        //}
+        if (name == "planttwo")
+        {
+            plantTwoJoy.start();
+        }
+        if (name == "plantthree")
+        {
+            plantThreeJoy.start();
+        }
+        if (name == "plantfour")
+        {
+            plantFourJoy.start();
+        }
+        if (name == "plantfive")
+        {
+            plantFiveJoy.start();
+        }
+        if (name == "plantsix")
+        {
+            plantSixJoy.start();
+        }
     }
 
     public void PlayDeath(string name)
@@ -153,26 +153,26 @@ public class PlantMoodManager : MonoBehaviour
         {
             plantOneDeath.start();
         }
-        //if (name == "planttwo")
-        //{
-        //    plantTwoDeath.start();
-        //}
-        //if (name == "plantthree")
-        //{
-        //    plantThreeDeath.start();
-        //}
-        //if (name == "plantfour")
-        //{
-        //    plantFourDeath.start();
-        //}
-        //if (name == "plantfive")
-        //{
-        //    plantFiveDeath.start();
-        //}
-        //if (name == "plantsix")
-        //{
-        //    plantSixDeath.start();
-        //}
+        if (name == "planttwo")
+        {
+            plantTwoDeath.start();
+        }
+        if (name == "plantthree")
+        {
+            plantThreeDeath.start();
+        }
+        if (name == "plantfour")
+        {
+            plantFourDeath.start();
+        }
+        if (name == "plantfive")
+        {
+            plantFiveDeath.start();
+        }
+        if (name == "plantsix")
+        {
+            plantSixDeath.start();
+        }
     }
 
     public void StopHungry(string name)
@@ -181,26 +181,26 @@ public class PlantMoodManager : MonoBehaviour
         {
             plantOneCry.stop(0);
         }
-        //if (name == "planttwo")
-        //{
-        //    plantTwoCry.stop(0);
-        //}
-        //if (name == "plantthree")
-        //{
-        //    plantThreeCry.stop(0);
-        //}
-        //if (name == "plantfour")
-        //{
-        //    plantFourCry.stop(0);
-        //}
-        //if (name == "plantfive")
-        //{
-        //    plantFiveCry.stop(0);
-        //}
-        //if (name == "plantsix")
-        //{
-        //    plantSixCry.stop(0);
-        //}
+        if (name == "planttwo")
+        {
+            plantTwoCry.stop(0);
+        }
+        if (name == "plantthree")
+        {
+            plantThreeCry.stop(0);
+        }
+        if (name == "plantfour")
+        {
+            plantFourCry.stop(0);
+        }
+        if (name == "plantfive")
+        {
+            plantFiveCry.stop(0);
+        }
+        if (name == "plantsix")
+        {
+            plantSixCry.stop(0);
+        }
     }
 
 }

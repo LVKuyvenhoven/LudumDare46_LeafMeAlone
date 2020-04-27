@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class WeatherManager : MonoBehaviour
@@ -16,6 +17,9 @@ public class WeatherManager : MonoBehaviour
     public GameObject sunPrefabObject;
     [HideInInspector] public GameObject minXPositionFrame, maxXPositionFrame, minZPositionFrame, maxZPositionFrame;
     Rigidbody plantRig;
+
+    FMOD.Studio.EventInstance daySound;
+    FMOD.Studio.EventInstance nightSound;
 
     [Header("Weather Spawner")]
     public float spawnRateInSeconds = 5;
@@ -41,18 +45,30 @@ public class WeatherManager : MonoBehaviour
     List<float> previousXPositions = new List<float>();
     List<float> previousZPositions = new List<float>();
 
+    bool checkedDay, checkedNight;
+
     private void Awake()
     {
+        daySound = FMODUnity.RuntimeManager.CreateInstance("event:/Sound Effects/DayNight/Rooster");
+        nightSound = FMODUnity.RuntimeManager.CreateInstance("event:/Sound Effects/DayNight/Wolf");
+
         scoreboardScript = scoreboardObject.GetComponent<Scoreboard>();
         maxSize = 300;
         previousXPositions.Add(100f);
         previousZPositions.Add(100f);
     }
 
+    private void Start()
+    {
+        RuntimeManager.AttachInstanceToGameObject(daySound, gameObject.transform, GetComponent<Rigidbody>());
+        RuntimeManager.AttachInstanceToGameObject(nightSound, gameObject.transform, GetComponent<Rigidbody>());
+    }
+
     private void FixedUpdate()
     {
         //Vies, maar ach
         DetectQuitGame();
+        DetectDayTime();
         if (!spawnANewObject) {
             spawnANewObject = true;
             StartCoroutine(SpawnCloud());
@@ -164,6 +180,22 @@ public class WeatherManager : MonoBehaviour
         if (Input.GetKey("escape"))
         {
             Application.Quit();
+        }
+    }
+
+    void DetectDayTime()
+    {
+        if ((sun.hour > 18 && sun.hour < 19) && !checkedNight)
+        {
+            checkedNight = true;
+            checkedDay = false;
+            nightSound.start();
+        }
+        if ((sun.hour > 6 && sun.hour < 7) && !checkedDay)
+        {
+            checkedDay = true;
+            checkedNight = false;
+            daySound.start();
         }
     }
 

@@ -14,6 +14,14 @@ public class Scoreboard : MonoBehaviour
     public TextMeshProUGUI deadlabel;
     public TextMeshProUGUI timelabel;
 
+    [Header("Plant References for Disabling")]
+    public GameObject plantone;
+    public GameObject planttwo;
+    public GameObject plantthree;
+    public GameObject plantfour;
+    public GameObject plantfive;
+    public GameObject plantsix;
+
     void Start()
     {
 
@@ -31,6 +39,30 @@ public class Scoreboard : MonoBehaviour
         }
         if (CurrentPlatsDead >= 4)
         {
+            if (plantone != null)
+            {
+                plantone.SetActive(false);
+            }
+            if (planttwo != null)
+            {
+                planttwo.SetActive(false);
+            }
+            if (plantthree != null)
+            {
+                plantthree.SetActive(false);
+            }
+            if (plantfour != null)
+            {
+                plantfour.SetActive(false);
+            }
+            if (plantfive != null)
+            {
+                plantfive.SetActive(false);
+            }
+            if (plantsix != null)
+            {
+                plantsix.SetActive(false);
+            }
             SceneManager.LoadScene("Menu");
         }
         CountPlayingTime();
