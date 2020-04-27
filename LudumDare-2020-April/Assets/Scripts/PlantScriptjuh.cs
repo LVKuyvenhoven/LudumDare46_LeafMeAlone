@@ -165,6 +165,7 @@ public class PlantScriptjuh : MonoBehaviour
             if (!startCrying)
             {
                 startCrying = true;
+                startJay = false;
                 plantMoodScript.PlayHungry(gameObject.name);
             }
         }

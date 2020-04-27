@@ -22,12 +22,22 @@ public class Scoreboard : MonoBehaviour
     public GameObject plantfive;
     public GameObject plantsix;
 
+    bool gameIsDone = true;
+
     void Start()
     {
-
+        Debug.Log(gameIsDone.ToString() + "start");
+        Debug.Log(CurrentPlatsDead.ToString(0 + "start"));
         CurrentPlatsDead = 0;
         deadlabel.text = "" + (0 - CurrentPlatsDead);
         timelabel.text = "00:00";
+        StartCoroutine(ResetGame());
+    }
+
+    IEnumerator ResetGame()
+    {
+        yield return new WaitForSeconds(5f);
+        gameIsDone = false;
     }
 
     void Update()
@@ -63,9 +73,21 @@ public class Scoreboard : MonoBehaviour
             {
                 plantsix.SetActive(false);
             }
-            SceneManager.LoadScene("Menu");
+            if (!gameIsDone)
+            {
+                gameIsDone = true;
+                CurrentPlatsDead = 0;
+                EndGame();
+            }
         }
         CountPlayingTime();
+    }
+
+    void EndGame()
+    {
+        Debug.Log(gameIsDone.ToString() + "start");
+        Debug.Log(CurrentPlatsDead.ToString(0 + "start"));
+        SceneManager.LoadScene("Game");
     }
 
     void CountPlayingTime()
