@@ -8,6 +8,9 @@ public class Click : MonoBehaviour
 {
     public string scene;
 
+    public GameObject controlsParent;
+    public GameObject titleParent;
+
     void Start()
     {
         Button btn = GetComponent<Button>();
@@ -23,8 +26,11 @@ public class Click : MonoBehaviour
         }
         else
         {
-            Application.LoadLevel(scene);
-            Scoreboard.CurrentPlatsDead = 0;
+            controlsParent.SetActive(false);
+            titleParent.SetActive(false);
+            //Application.LoadLevel(scene);
+            //Scoreboard.CurrentPlatsDead = 0;
+
             //SceneManager.LoadScene(scene);
         }
     }
