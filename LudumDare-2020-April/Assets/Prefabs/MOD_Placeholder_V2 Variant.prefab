@@ -53,7 +53,7 @@ MonoBehaviour:
   SunIncreaseSpeed: 5
   RainDecreaseSpeed: 2
   RainIncreaseSpeed: 5
-  range: 2
+  range: 5
   InSun: 0
   InRain: 0
 --- !u!1 &5591593938485214423
@@ -146,17 +146,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: b906552c3f08e074484c24764c3c788e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.7102594
+      value: 7.22
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b906552c3f08e074484c24764c3c788e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.0819964
+      value: -2.08
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b906552c3f08e074484c24764c3c788e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.425126
+      value: -7.51
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b906552c3f08e074484c24764c3c788e,
         type: 3}

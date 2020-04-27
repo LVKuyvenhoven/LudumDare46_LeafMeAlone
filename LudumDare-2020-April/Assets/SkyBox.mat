@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BackTex:
-        m_Texture: {fileID: 2800000, guid: 9c50eea2e27ca264d9eebc362ea1c437, type: 3}
+        m_Texture: {fileID: 2800000, guid: c4cc027c79b88e043b19d311e0a6d38b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BackTex2:
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DownTex:
-        m_Texture: {fileID: 2800000, guid: e490c0eb02f709349bacfbabf7347fd9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 705d3d0112317fa478706649584da13c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DownTex2:
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FrontTex:
-        m_Texture: {fileID: 2800000, guid: de5a6099049c5cf40b700217dac6ea49, type: 3}
+        m_Texture: {fileID: 2800000, guid: bc9d6d84aabe03d48bfbb137b544f8a0, type: 3}
         m_Scale: {x: 1, y: 1.2}
         m_Offset: {x: 0, y: 0}
     - _FrontTex2:
@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LeftTex:
-        m_Texture: {fileID: 2800000, guid: 50045828000b016489c63a346c778793, type: 3}
+        m_Texture: {fileID: 2800000, guid: 548f240acd1e6424ab1422e5f3786d55, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LeftTex2:
@@ -88,7 +88,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RightTex:
-        m_Texture: {fileID: 2800000, guid: 9543965286a7d3e4ea9c8a1abfeb8b55, type: 3}
+        m_Texture: {fileID: 2800000, guid: f72176f3d64338d41982eb221bcca6ed, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RightTex2:
@@ -96,7 +96,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _UpTex:
-        m_Texture: {fileID: 2800000, guid: 4811c98ef312f914896457af26e85471, type: 3}
+        m_Texture: {fileID: 2800000, guid: 592c2e8ac299c9140b3aec2b6c307738, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _UpTex2:
@@ -104,7 +104,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Blend: 0.21200953
+    - _Blend: 0.89969033
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1

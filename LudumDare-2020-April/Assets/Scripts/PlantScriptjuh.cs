@@ -12,9 +12,13 @@ public class PlantScriptjuh : MonoBehaviour
 
     public Canvas ui;
 
+    public GameObject p1;
+    public GameObject p2;
+
     public Slider WaterSlider;
     public Slider SunSlider;
 
+    public int WaterAmount;
     public float SunStatus = 100;
     public float MaxSunStatus = 100;
 
@@ -37,6 +41,8 @@ public class PlantScriptjuh : MonoBehaviour
 
     private void Awake()
     {
+        p1 = GameObject.Find("Player1");
+        p2 = GameObject.Find("Player2");
         plantMoodManagerObject = GameObject.Find("PlantMoodManager");
         plantMoodScript = plantMoodManagerObject.GetComponent<PlantMoodManager>();
         plantFaceRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -52,14 +58,49 @@ public class PlantScriptjuh : MonoBehaviour
 
     void updateUi()
     {
-        if(Vector3.Distance(posP1, this.transform.position) < range || Vector3.Distance(posP2, this.transform.position) < range)
+        if (Vector3.Distance(posP2, this.transform.position) < range)
         {
+            WaterAmount = p2.GetComponent<Movement_Script>().WaterAmount;
             ui.GetComponent<Canvas>().enabled = true;
+            if (Input.GetKeyDown(KeyCode.Keypad0))
+            {
+                if (WaterAmount >= 25)
+                {
+                    if (WaterStatus < 90)
+                    {
+                        WaterAmount = WaterAmount - 25;
+                        WaterStatus = WaterStatus + 10;
+                        p2.GetComponent<Movement_Script>().WaterAmount = WaterAmount;
+                    }
+                }
+            }
         }
-        else
+
+        if (Vector3.Distance(posP1, this.transform.position) < range)
+        {
+            WaterAmount = p1.GetComponent<Movement_Script>().WaterAmount;
+            ui.GetComponent<Canvas>().enabled = true;
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                if (WaterAmount >= 25)
+                {
+                    if (WaterStatus < 90)
+                    {
+                        WaterAmount = WaterAmount - 25;
+                        WaterStatus = WaterStatus + 10;
+                        p1.GetComponent<Movement_Script>().WaterAmount = WaterAmount;
+                    }
+                }
+            }
+        }
+
+        
+
+        if (Vector3.Distance(posP2, this.transform.position) > range && Vector3.Distance(posP1, this.transform.position) > range)
         {
             ui.GetComponent<Canvas>().enabled = false;
         }
+
     }
 
     void StatusUpdate()

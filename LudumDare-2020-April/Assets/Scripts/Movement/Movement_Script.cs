@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movement_Script : MonoBehaviour
 {
@@ -9,8 +10,12 @@ public class Movement_Script : MonoBehaviour
     public float speed = 12f;
     float gravity = -9.81f;
 
+    public int WaterAmount;
+
     public GameObject barrel;
     public Canvas WaterLevel;
+    public Slider WaterValue;
+
     public float rangeBarrel;
     public KeyCode playerSpecialKey;
 
@@ -28,8 +33,14 @@ public class Movement_Script : MonoBehaviour
     [Header("Set Playstation Controller")]
     public bool thisIsPlayerTwo;
 
+    private void Start()
+    {
+        WaterAmount = 0;
+        WaterValue.value = WaterAmount;
+    }
     void Update()
     {
+        WaterValue.value = WaterAmount;
         Movement();
         if(this.gameObject.name == "Player1")
         {
@@ -40,14 +51,16 @@ public class Movement_Script : MonoBehaviour
             PlantScriptjuh.posP2 = transform.position;
         }
 
-
-
         if (Vector3.Distance(barrel.transform.position, this.transform.position) < rangeBarrel)
         {
             WaterLevel.enabled = true;
             if (Input.GetKeyDown(playerSpecialKey))
             {
-                Debug.Log("Player 2 Press en dichtbij");
+                if(WaterAmount < 100)
+                {
+                    WaterAmount = WaterAmount + 20;
+                    WaterValue.value = WaterAmount;
+                }
             }
         }
         else
@@ -248,7 +261,6 @@ public class Movement_Script : MonoBehaviour
         }
 
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-
         body.velocity = pushDir * pushPower;
     }
 }
