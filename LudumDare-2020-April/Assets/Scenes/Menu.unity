@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793d17ed25818ae458f7ea0c50c247f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Mikey - kopie
+  scene: Game
 --- !u!1 &479219127
 GameObject:
   m_ObjectHideFlags: 0

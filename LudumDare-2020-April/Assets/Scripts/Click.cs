@@ -14,6 +14,7 @@ public class Click : MonoBehaviour
         btn.onClick.AddListener(TaskOnClick);
     }
 
+    [System.Obsolete]
     void TaskOnClick()
     {
         if (scene == "Exit")
@@ -22,7 +23,8 @@ public class Click : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(scene);
+            Application.LoadLevel(scene);
+            //SceneManager.LoadScene(scene);
         }
     }
 }

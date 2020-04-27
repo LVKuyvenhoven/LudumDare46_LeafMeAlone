@@ -16,6 +16,7 @@ public class Scoreboard : MonoBehaviour
 
     void Start()
     {
+
         CurrentPlatsDead = 0;
         deadlabel.text = "" + (4 - CurrentPlatsDead);
         timelabel.text = "00:00";
