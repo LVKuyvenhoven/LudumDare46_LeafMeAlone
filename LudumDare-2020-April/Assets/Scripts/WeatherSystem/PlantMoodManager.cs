@@ -203,4 +203,14 @@ public class PlantMoodManager : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        plantOneCry.stop(0);
+        plantTwoCry.stop(0);
+        plantThreeCry.stop(0);
+        plantFourCry.stop(0);
+        plantFiveCry.stop(0);
+        plantSixCry.stop(0);
+    }
+
 }

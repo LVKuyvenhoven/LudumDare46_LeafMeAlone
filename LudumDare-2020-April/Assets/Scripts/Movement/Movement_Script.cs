@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class Movement_Script : MonoBehaviour
 {
+    public GameObject defaultModel;
+    public GameObject pushingModel;
+
+    public GameObject raycastOrigin;
+
     public CharacterController controller;
     public GameObject ghostObject;
     public float speed = 12f;
@@ -31,6 +36,8 @@ public class Movement_Script : MonoBehaviour
     public KeyCode Right;
     public KeyCode Left;
 
+    RaycastHit hit;
+
     FMOD.Studio.EventInstance getWater;
 
     [Header("Set Playstation Controller")]
@@ -51,6 +58,7 @@ public class Movement_Script : MonoBehaviour
 
     void Update()
     {
+        CheckIfPlantIsBeforeYou();
         WaterValue.value = WaterAmount;
         Movement();
         if(this.gameObject.name == "Player1")
@@ -226,6 +234,8 @@ public class Movement_Script : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
         velocity.y += gravity * Time.deltaTime;
+        //Prevent the player from glitching up
+        transform.position = new Vector3(transform.position.x, 2.079989f, transform.position.z);
     }
 
     void FaceForward()
@@ -302,4 +312,42 @@ public class Movement_Script : MonoBehaviour
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
         body.velocity = pushDir * pushPower;
     }
+
+    void CheckIfPlantIsBeforeYou()
+    {
+        if (Physics.Raycast(raycastOrigin.transform.position, ghostObject.transform.forward, out hit, 2))
+        {
+            if (hit.collider.tag == "Plant")
+            {
+                defaultModel.SetActive(false);
+                pushingModel.SetActive(true);
+            }
+        }
+        else
+        {
+            defaultModel.SetActive(true);
+            pushingModel.SetActive(false);
+        }
+    }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+
+    //    Debug.Log("collision");
+    //    if (collision.gameObject.tag == "Plant")
+    //    {
+    //        defaultModel.SetActive(false);
+    //        pushingModel.SetActive(true);
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Plant")
+    //    {
+    //        defaultModel.SetActive(true);
+    //        pushingModel.SetActive(false);
+    //    }
+    //}
+
 }

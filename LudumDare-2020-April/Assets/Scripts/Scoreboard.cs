@@ -26,8 +26,6 @@ public class Scoreboard : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(gameIsDone.ToString() + "start");
-        Debug.Log(CurrentPlatsDead.ToString(0 + "start"));
         CurrentPlatsDead = 0;
         deadlabel.text = "" + (0 - CurrentPlatsDead);
         timelabel.text = "00:00";
@@ -85,9 +83,7 @@ public class Scoreboard : MonoBehaviour
 
     void EndGame()
     {
-        Debug.Log(gameIsDone.ToString() + "start");
-        Debug.Log(CurrentPlatsDead.ToString(0 + "start"));
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Menu");
     }
 
     void CountPlayingTime()
